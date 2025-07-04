@@ -2,19 +2,17 @@ from helper_files.helper_functions import CognigyAPIClient
 from dotenv import load_dotenv
 import os
 
-#Cehck for arguments
-#Todo: Implement argument parsing to allow for different environments (dev/prod) and other configurations
-#For Testing:
-project_id_dev = "6853e4773ea509ac11dc4444"
-project_id_dev = "68499f9e62b02399a43dacb3"
-bot_name = "Intelligent Routing"
-
 #Load environment variables
 load_dotenv(override=True)
-base_url_dev = os.getenv("cognigy_base_url_dev")
-base_url_prod = os.getenv("cognigy_base_url_prod")
-api_key_dev = os.getenv("cognigy_api_key_dev")
-api_key_prod = os.getenv("cognigy_api_key_prod")
+base_url_dev = os.getenv("COGNIGY_BASE_URL_DEV")
+base_url_prod = os.getenv("COGNIGY_BASE_URL_PROD")
+api_key_dev = os.getenv("COGNIGY_API_KEY_DEV")
+api_key_prod = os.getenv("COGNIGY_API_KEY_PROD")
+bot_name = os.getenv("USE_CASE")
+project_id_dev = os.getenv("COGNIGY_PROJECT_ID_DEV")
+project_id_prod = os.getenv("COGNIGY_PROJECT_ID_PROD")
+max_snapshots = int(os.getenv("MAX_SNAPSHOTS"))
+release_description = os.getenv("RELEASE_DESCRIPTION")
 
 #Instantiate Cognigy Dev Client
 CognigyAPIClientDev = CognigyAPIClient(
@@ -55,6 +53,6 @@ CognigyAPIClientDev.create_package(
 CognigyAPIClientDev.download_package()
 
 CognigyAPIClientDev.download_snapshot(
-    max_snapshots=10,
-    release_description="Test Release"
+    max_snapshots=max_snapshots,
+    release_description=release_description
 )

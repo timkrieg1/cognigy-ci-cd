@@ -1,0 +1,56 @@
+name: Extract Cognigy Agent
+
+on:
+  workflow_dispatch:
+    inputs:
+      useCase:
+        description: 'Select use case'
+        required: true
+        type: choice
+        options:
+          - authentication
+          - routing
+permissions:
+  contents: write
+  
+jobs:
+  extract-agent:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Set Bot IDs
+        id: set_bot_ids
+        run: |
+          USE_CASE="${{ github.event.inputs.useCase }}"
+          DEV_ID=$(jq -r ".\"$USE_CASE\".dev" bot_mapping.json)
+          PROD_ID=$(jq -r ".\"$USE_CASE\".prod" bot_mapping.json)
+          echo "COGNIGY_PROJECT_ID_DEV=$DEV_ID" >> $GITHUB_ENV
+          echo "COGNIGY_PROJECT_ID_PROD=$PROD_ID" >> $GITHUB_ENV
+
+      - name: Run Extraction Script
+        env:
+          USE_CASE: ${{ github.event.inputs.useCase }}
+          COGNIGY_PROJECT_ID_DEV: ${{ env.COGNIGY_PROJECT_ID_DEV }}
+          COGNIGY_PROJECT_ID_PROD: ${{ env.COGNIGY_PROJECT_ID_PROD }}
+          COGNIGY_BASE_URL_DEV: ${{ secrets.COGNIGY_BASE_URL_DEV }}
+          COGNIGY_BASE_URL_PROD: ${{ secrets.COGNIGY_BASE_URL_PROD }}
+          COGNIGY_API_KEY_DEV: ${{ secrets.COGNIGY_API_KEY_DEV }}
+          COGNIGY_API_KEY_PROD: ${{ secrets.COGNIGY_API_KEY_PROD }}
+          MAX_SNAPSHOTS: ${{ secrets.MAX_SNAPSHOTS }}
+          RELEASE_DESCRIPTION: ${{ github.event.inputs.releaseDescription }}
+          
+          
+        run: |
+          python extract_agent.py

@@ -1,0 +1,12 @@
+{
+  "authentication": {
+    "dev": "68499f9e62b02399a43dacb3",
+    "test": "test-bot-id-routing",
+    "prod": "prod-bot-id-auth"
+  },
+  "routing": {
+    "dev": "dev-bot-id-routing",
+    "test": "test-bot-id-routing",
+    "prod": "prod-bot-id-routing"
+  }
+}
