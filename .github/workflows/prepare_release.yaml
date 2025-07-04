@@ -48,11 +48,11 @@ jobs:
           USE_CASE: ${{ github.event.inputs.useCase }}
           COGNIGY_PROJECT_ID_DEV: ${{ env.COGNIGY_PROJECT_ID_DEV }}
           COGNIGY_PROJECT_ID_PROD: ${{ env.COGNIGY_PROJECT_ID_PROD }}
-          COGNIGY_BASE_URL_DEV: ${{ secrets.COGNIGY_BASE_URL_DEV }}
-          COGNIGY_BASE_URL_PROD: ${{ secrets.COGNIGY_BASE_URL_PROD }}
+          COGNIGY_BASE_URL_DEV: ${{ vars.COGNIGY_BASE_URL_DEV }}
+          COGNIGY_BASE_URL_PROD: ${{ vars.COGNIGY_BASE_URL_PROD }}
           COGNIGY_API_KEY_DEV: ${{ secrets.COGNIGY_API_KEY_DEV }}
           COGNIGY_API_KEY_PROD: ${{ secrets.COGNIGY_API_KEY_PROD }}
-          MAX_SNAPSHOTS: ${{ secrets.MAX_SNAPSHOTS }}
+          MAX_SNAPSHOTS: ${{ vars.MAX_SNAPSHOTS }}
           RELEASE_DESCRIPTION: ${{ github.event.inputs.releaseDescription }}
           
           
