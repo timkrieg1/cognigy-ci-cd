@@ -1,6 +1,10 @@
 from helper_files.helper_functions import CognigyAPIClient
 from dotenv import load_dotenv
 import os
+import sys
+import shutil
+import subprocess
+from datetime import datetime, timezone
 
 #Load environment variables
 load_dotenv(override=True)
@@ -13,6 +17,18 @@ project_id_dev = os.getenv("COGNIGY_PROJECT_ID_DEV")
 project_id_prod = os.getenv("COGNIGY_PROJECT_ID_PROD")
 max_snapshots = int(os.getenv("MAX_SNAPSHOTS"))
 release_description = os.getenv("RELEASE_DESCRIPTION")
+
+# --- Use bot_name for all use-case logic ---
+if not bot_name:
+    bot_name = "agent"
+
+# --- Prepare agent folder structure ---
+agent_folder = "agent"
+if os.path.exists(agent_folder):
+    shutil.rmtree(agent_folder)
+os.makedirs("agent/flows", exist_ok=True)
+os.makedirs("agent/connections", exist_ok=True)
+os.makedirs("agent/snapshots", exist_ok=True)
 
 #Instantiate Cognigy Dev Client
 CognigyAPIClientDev = CognigyAPIClient(
@@ -52,7 +68,28 @@ CognigyAPIClientDev.create_package(
 
 CognigyAPIClientDev.download_package()
 
-CognigyAPIClientDev.download_snapshot(
+snapshot_name = CognigyAPIClientDev.download_snapshot(
     max_snapshots=max_snapshots,
     release_description=release_description
 )
+
+# --- Git branch creation and commit logic ---
+branch_name = snapshot_name
+
+# Git config
+subprocess.run(["git", "config", "--global", "user.email", "actions@github.com"], check=True)
+subprocess.run(["git", "config", "--global", "user.name", "github-actions"], check=True)
+
+# Ensure we are on main and up to date
+subprocess.run(["git", "checkout", "main"], check=True)
+subprocess.run(["git", "pull", "origin", "main"], check=True)
+
+# Create new branch from main
+subprocess.run(["git", "checkout", "-b", branch_name], check=True)
+
+# Stage and commit new agent export
+subprocess.run(["git", "add", agent_folder], check=True)
+subprocess.run(["git", "commit", "-m", f"Update agent export for {bot_name}"], check=True)
+
+# Push the new branch
+subprocess.run(["git", "push", "-u", "origin", branch_name], check=True)

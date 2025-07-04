@@ -368,6 +368,8 @@ class CognigyAPIClient:
                     else:
                         print("Snapshot downloaded successfully.")
                         break
+                    
+        return self.snapshot_name
 
 
 
