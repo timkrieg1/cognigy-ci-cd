@@ -1,0 +1,265 @@
+[
+    {
+        "children": [],
+        "_id": "675c47a8677ba72659d9f77d",
+        "node": "675c47a8677ba75607d9f77c",
+        "next": "675fece3adc766349fa69fcb",
+        "_data": {
+            "_id": "675c47a8677ba75607d9f77c",
+            "referenceId": "a3453e48-1212-4576-823f-adee0928b489",
+            "type": "start",
+            "label": "Start",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isDisabled": false,
+            "isEntryPoint": true,
+            "extension": "@cognigy/basic-nodes",
+            "config": {},
+            "preview": "",
+            "localeReference": "6759f148adc76698bc90c4c6"
+        }
+    },
+    {
+        "children": [],
+        "_id": "675c47a8677ba70723d9f78a",
+        "node": "675c47a8677ba73389d9f787",
+        "next": null,
+        "_data": {
+            "_id": "675c47a8677ba73389d9f787",
+            "referenceId": "207675d0-c6bd-47bc-bbe0-238697061d7e",
+            "type": "end",
+            "label": "End",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isDisabled": false,
+            "isEntryPoint": false,
+            "extension": "@cognigy/basic-nodes",
+            "config": {},
+            "preview": "",
+            "localeReference": "6759f148adc76698bc90c4c6"
+        }
+    },
+    {
+        "children": [],
+        "_id": "675fecb5adc76652b3a69e01",
+        "node": "675fecb5adc7668ee6a69dfe",
+        "next": "675fed54677ba7291cdf8dc2",
+        "_data": {
+            "_id": "675fecb5adc7668ee6a69dfe",
+            "referenceId": "b7661eb9-e3fa-4450-84af-ee6f01b4baff",
+            "type": "addToContext",
+            "label": "AC: noUserInputCounter",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isDisabled": false,
+            "isEntryPoint": false,
+            "extension": "@cognigy/basic-nodes",
+            "config": {
+                "key": "sessionInformation.noUserInputCounter",
+                "value": "{{cc.sessionInformation.noUserInputCounter +1}}",
+                "mode": "simple"
+            },
+            "preview": "sessionInformation.noUserInputCounter",
+            "localeReference": "6759f148adc76698bc90c4c6"
+        }
+    },
+    {
+        "children": [],
+        "_id": "675fece3adc76612e2a69fd0",
+        "node": "675fece3adc766349fa69fcb",
+        "next": "675fecb5adc7668ee6a69dfe",
+        "_data": {
+            "_id": "675fece3adc766349fa69fcb",
+            "referenceId": "993ff596-a432-4559-a7f5-dac4e4085b58",
+            "type": "code",
+            "label": "READ ME",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isDisabled": false,
+            "isEntryPoint": false,
+            "extension": "@cognigy/basic-nodes",
+            "config": {
+                "code": "/* \r\nFlow Purpose\r\n\r\nThis flow is used to increment the noUserInputCounter context variable when a no user input event is registered. When the noUserInputCounter equals the maxNoUserInputs constants variable value, the vall will be terminated and the caller will hear a prompt.\r\n\r\n\r\n\r\n---------------------------------------\r\nCONNECTION TO OTHER FLOWS\r\n\r\nThis flow invokes the following flows:\r\nBF_06_Hang Up\r\n\r\n\r\nThis flow gets invoked by the following flows:\r\nAll that attach this flow\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n */",
+                "hasError": false,
+                "transpiled": ""
+            },
+            "preview": "",
+            "localeReference": "6759f148adc76698bc90c4c6"
+        }
+    },
+    {
+        "children": [
+            "675fed54677ba7183cdf8dcc",
+            "675fed54677ba75008df8dd9"
+        ],
+        "_id": "675fed54677ba70021df8dc5",
+        "node": "675fed54677ba7291cdf8dc2",
+        "next": "675c47a8677ba73389d9f787",
+        "_data": {
+            "_id": "675fed54677ba7291cdf8dc2",
+            "referenceId": "e8d37c13-3a18-43d4-bcd5-c90d7d535663",
+            "type": "if",
+            "label": "Max. No User Input Threshold reached?",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isDisabled": false,
+            "isEntryPoint": false,
+            "extension": "@cognigy/basic-nodes",
+            "config": {
+                "condition": {
+                    "type": "condition",
+                    "rule": {
+                        "left": "1",
+                        "operand": "eq",
+                        "right": "1"
+                    },
+                    "condition": "{{cc.sessionInformation.noUserInputCounter == cc.constants.maxNoUserInputs}}"
+                }
+            },
+            "preview": {
+                "type": "condition",
+                "rule": {
+                    "left": "1",
+                    "operand": "eq",
+                    "right": "1"
+                },
+                "condition": "{{cc.sessionInformation.noUserInputCounter == cc.constants.maxNoUserInputs}}"
+            },
+            "localeReference": "6759f148adc76698bc90c4c6"
+        }
+    },
+    {
+        "children": [],
+        "_id": "675fed54677ba7552ddf8dcf",
+        "node": "675fed54677ba7183cdf8dcc",
+        "next": "675fed82d02a5cce443faaae",
+        "_data": {
+            "_id": "675fed54677ba7183cdf8dcc",
+            "referenceId": "1dd53d12-a6ba-4dc5-a672-8223a92c3751",
+            "type": "then",
+            "label": "Then",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isDisabled": false,
+            "isEntryPoint": false,
+            "extension": "@cognigy/basic-nodes",
+            "config": {},
+            "preview": "",
+            "localeReference": "6759f148adc76698bc90c4c6"
+        }
+    },
+    {
+        "children": [],
+        "_id": "675fed54677ba74cb3df8ddc",
+        "node": "675fed54677ba75008df8dd9",
+        "next": null,
+        "_data": {
+            "_id": "675fed54677ba75008df8dd9",
+            "referenceId": "1fb7914a-839a-4671-b447-8bf72e54a49d",
+            "type": "else",
+            "label": "Else",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isDisabled": false,
+            "isEntryPoint": false,
+            "extension": "@cognigy/basic-nodes",
+            "config": {},
+            "preview": "",
+            "localeReference": "6759f148adc76698bc90c4c6"
+        }
+    },
+    {
+        "children": [],
+        "_id": "675fed82d02a5c2ec53faab1",
+        "node": "675fed82d02a5cce443faaae",
+        "next": "675fedccadc76626aea6ab6b",
+        "_data": {
+            "_id": "675fed82d02a5cce443faaae",
+            "referenceId": "6f13553f-35ae-40df-baf1-d765874dc9f6",
+            "type": "say",
+            "label": "S: Hang Up Prompt",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isDisabled": false,
+            "isEntryPoint": false,
+            "extension": "@cognigy/basic-nodes",
+            "config": {
+                "say": {
+                    "data": "",
+                    "linear": false,
+                    "loop": false,
+                    "text": [
+                        "Ich kann Sie leider nicht hören. Ich beende nun das Gespräch. Auf wiederhören."
+                    ],
+                    "type": "text",
+                    "_cognigy": {},
+                    "_data": {
+                        "_cognigy": {}
+                    }
+                },
+                "handoverOutput": "userAndAgent",
+                "generativeAI_rephraseOutputMode": "none",
+                "generativeAI_amountOfLastUserInputs": 5,
+                "generativeAI_customInputs": "",
+                "generativeAI_temperature": 0.7
+            },
+            "preview": {
+                "data": "",
+                "linear": false,
+                "loop": false,
+                "text": [
+                    "Ich kann Sie leider nicht hören. Ich beende nun das Gespräch. Auf wiederhören."
+                ],
+                "type": "text",
+                "_cognigy": {},
+                "_data": {
+                    "_cognigy": {}
+                }
+            },
+            "localeReference": "6759f148adc76698bc90c4c6"
+        }
+    },
+    {
+        "children": [],
+        "_id": "675fedccadc7662b4da6ab6e",
+        "node": "675fedccadc76626aea6ab6b",
+        "next": null,
+        "_data": {
+            "_id": "675fedccadc76626aea6ab6b",
+            "referenceId": "094005c3-cb4d-46fc-86c3-adca2f273bc3",
+            "type": "goTo",
+            "label": "G2: BF_06_Hang Up",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isDisabled": false,
+            "isEntryPoint": false,
+            "extension": "@cognigy/basic-nodes",
+            "config": {
+                "flowNode": {
+                    "flow": "08062cce-6e8d-409b-8f89-4bec019ad26f",
+                    "node": "fd07af42-c7ae-40d6-82e3-a70d5e403c82"
+                },
+                "absorbContext": false,
+                "executionMode": "continue",
+                "injectedText": "",
+                "injectedData": "{}",
+                "parseIntents": false,
+                "parseKeyphrases": false
+            },
+            "preview": {
+                "flow": "08062cce-6e8d-409b-8f89-4bec019ad26f",
+                "node": "fd07af42-c7ae-40d6-82e3-a70d5e403c82"
+            },
+            "localeReference": "6759f148adc76698bc90c4c6"
+        }
+    }
+]

@@ -1,0 +1,16 @@
+{
+    "User disconnected": {
+        "metadata": {
+            "_id": "675c5295adc766ab5b9dfdae",
+            "tags": [],
+            "name": "User disconnected",
+            "description": "",
+            "referenceId": "4568b211-919a-4aee-84d8-22543a99ea23",
+            "isDisabled": false,
+            "localeReference": "6759f148adc76698bc90c4c6",
+            "biasTowardsParentOrChildIntents": "parents",
+            "parentIntentId": null
+        },
+        "training_sentences": []
+    }
+}

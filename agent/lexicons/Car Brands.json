@@ -1,0 +1,37 @@
+{
+    "_id": "687260b842ec168c1880d050",
+    "name": "Car Brands",
+    "description": "A Lexicon that contains car brands\n",
+    "referenceId": "0c5adfc5-e22f-49f8-a4c6-cde761122805",
+    "createdAt": 1752326328,
+    "lastChanged": 1752326350,
+    "createdBy": "65605bbcde1bccb4b9af6114",
+    "lastChangedBy": "65605bbcde1bccb4b9af6114",
+    "isPackedForDownload": false,
+    "values": [
+        {
+            "_id": "687260bd42ec168c1880d07b",
+            "tags": [
+                "carBrands"
+            ],
+            "synonyms": [],
+            "keyphrase": "Mercedes"
+        },
+        {
+            "_id": "687260bc42ec168c1880d06f",
+            "tags": [
+                "carBrands"
+            ],
+            "synonyms": [
+                "Volkswagen"
+            ],
+            "keyphrase": "VW"
+        },
+        {
+            "_id": "687260ba432d29bf054e66a5",
+            "tags": [],
+            "synonyms": [],
+            "keyphrase": "BMW"
+        }
+    ]
+}

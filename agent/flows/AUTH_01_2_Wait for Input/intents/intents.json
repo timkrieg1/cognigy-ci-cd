@@ -1,0 +1,274 @@
+{
+    "Contract_CantFindContractNumber": {
+        "metadata": {
+            "_id": "675edb08d02a5c48063dbb26",
+            "tags": [],
+            "name": "Contract_CantFindContractNumber",
+            "description": "This Intent is triggered when the caller says that he does not know where he finds his contract number\n",
+            "referenceId": "f6e54a06-fcac-4f1e-aa02-9e53e6718615",
+            "isDisabled": false,
+            "localeReference": "6759f148adc76698bc90c4c6",
+            "biasTowardsParentOrChildIntents": "parents",
+            "parentIntentId": null
+        },
+        "training_sentences": [
+            {
+                "_id": "675edc67adc7661a9ba3b791",
+                "text": "Weiß ich nicht auswendig.",
+                "referenceId": "2a0f7f34-5d9d-466b-92b8-986db1cbbfc9",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734270055,
+                "lastChanged": 1734270055,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            },
+            {
+                "_id": "675edc66677ba707bbde268c",
+                "text": "Wo kann ich die nachschauen?",
+                "referenceId": "983173fd-ba19-4b80-b130-ad9c068e7f7a",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734270054,
+                "lastChanged": 1734270054,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            },
+            {
+                "_id": "675edc55adc7665a3ba3b779",
+                "text": "Wo finde ich die denn?",
+                "referenceId": "bb89ab07-3b11-4ac1-808b-f40da1dd873d",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734270037,
+                "lastChanged": 1734270037,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            },
+            {
+                "_id": "675edc11d02a5c17a73dbbcd",
+                "text": "Tut mir leid ich weiß nicht, wo die Nummer ist.",
+                "referenceId": "f0ad957f-2a08-48a3-86af-0e160a3b1395",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734269969,
+                "lastChanged": 1734269969,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            },
+            {
+                "_id": "675edc11adc76619c3a3b5c3",
+                "text": "Ich finde die Vertragsnummer gerade nicht.",
+                "referenceId": "08f17a45-e911-4e2e-9e78-7c618c982e03",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734269969,
+                "lastChanged": 1734269969,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            },
+            {
+                "_id": "675edc11677ba77b2cde25b0",
+                "text": "Ich bin mir nicht sicher, wo ich die Nummer suchen soll.",
+                "referenceId": "640a181a-7a00-4399-9eb1-350f24b4d024",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734269969,
+                "lastChanged": 1734269969,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            },
+            {
+                "_id": "675edb2cd02a5c3f8c3dbb43",
+                "text": "Ich weiß nicht wo die Nummer ist.",
+                "referenceId": "aac523aa-a77b-4d9d-aa17-79c47b01f55b",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734269740,
+                "lastChanged": 1734269968,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            },
+            {
+                "_id": "675edb2cadc766aa27a3b47a",
+                "text": "Was für eine Nummer nochmal?",
+                "referenceId": "2dd21d2d-c870-4fb2-b756-29eb3569bd32",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734269740,
+                "lastChanged": 1734269740,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            },
+            {
+                "_id": "675edb2cadc7662c15a3b483",
+                "text": "Wo kann ich die Vertragsnummer nachschauen?",
+                "referenceId": "53798bcf-00cf-4b70-a1fe-1fd2baa127a0",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734269740,
+                "lastChanged": 1734269968,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            },
+            {
+                "_id": "675edb2c677ba7b41bde2515",
+                "text": "Welche Nummer willst du?",
+                "referenceId": "8549666b-7dd4-4a6b-866e-b6934a907c33",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734269740,
+                "lastChanged": 1734269740,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            },
+            {
+                "_id": "675edb2badc766d435a3b471",
+                "text": "Wo finde ich die Nummer?",
+                "referenceId": "1f3966ec-dc34-4bb2-a3bc-f8f399f2165a",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734269739,
+                "lastChanged": 1734269968,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            },
+            {
+                "_id": "675edb2b677ba71315de250c",
+                "text": "Wo finde ich meine Vertragsnummer?",
+                "referenceId": "68b154f6-f20b-4b3d-8138-f7163f34e9c6",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734269739,
+                "lastChanged": 1734269968,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            }
+        ]
+    },
+    "Contract_NeedMoreTime": {
+        "metadata": {
+            "_id": "675edb47adc7667ed2a3b4a0",
+            "tags": [],
+            "name": "Contract_NeedMoreTime",
+            "description": "This Intent is triggered when the user tells the bot that he needs some time to search for this contract number",
+            "referenceId": "bc45dc78-a9e8-48d0-912f-b75832e93e8f",
+            "isDisabled": false,
+            "localeReference": "6759f148adc76698bc90c4c6",
+            "biasTowardsParentOrChildIntents": "parents",
+            "parentIntentId": null
+        },
+        "training_sentences": [
+            {
+                "_id": "675edbc4d02a5c74e03dbb94",
+                "text": "Warten Sie kurz, ich muss die Nummer erst raussuchen.",
+                "referenceId": "aabce874-6822-4704-8227-a7203cd5b55b",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734269892,
+                "lastChanged": 1734269985,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            },
+            {
+                "_id": "675edbc4adc7664db9a3b557",
+                "text": "Das dauert einen Moment.",
+                "referenceId": "a93c6e09-2ef2-4796-afa8-7dbfde4c4421",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734269892,
+                "lastChanged": 1734269985,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            },
+            {
+                "_id": "675edbc4677ba78abcde2579",
+                "text": "Ich suche die Nummer schnell, bitte einen Moment Geduld.",
+                "referenceId": "917199b2-0120-467b-8689-c9369d3992f0",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734269892,
+                "lastChanged": 1734269985,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            },
+            {
+                "_id": "675edb6ed02a5ce7a73dbb6b",
+                "text": "Okay ich brauche kurz.",
+                "referenceId": "2399429b-0e79-4555-9d11-440672a257f6",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734269806,
+                "lastChanged": 1734269984,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            },
+            {
+                "_id": "675edb6eadc7667193a3b4dd",
+                "text": "Warte kurz.",
+                "referenceId": "6101f4c1-a553-416e-a3ac-8242dd40cec9",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734269806,
+                "lastChanged": 1734269984,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            },
+            {
+                "_id": "675edb6eadc7666802a3b4e6",
+                "text": "Ich finde sie gleich.",
+                "referenceId": "e73e2edd-6935-4304-af62-07bd0be49ba1",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734269806,
+                "lastChanged": 1734269984,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            },
+            {
+                "_id": "675edb6eadc7663a45a3b4ef",
+                "text": "Brauche einen Moment.",
+                "referenceId": "f3ec1ddb-cc6a-4c5b-9e92-33b5df9fe4fb",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734269806,
+                "lastChanged": 1734269984,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            },
+            {
+                "_id": "675edb6e677ba76017de2540",
+                "text": "Hm wo hab ich die nochmal?",
+                "referenceId": "fc652815-2cc2-4be5-b4c4-2e43f4696e1b",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734269806,
+                "lastChanged": 1734269985,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            },
+            {
+                "_id": "675edb6dadc76621f5a3b4d4",
+                "text": "Die muss ich kurz suchen.",
+                "referenceId": "0592ca86-9bd5-4db4-b2ae-83bf06aa7882",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734269805,
+                "lastChanged": 1734269983,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            },
+            {
+                "_id": "675edb6d677ba70871de2537",
+                "text": "Einen Moment bitte.",
+                "referenceId": "7aba7230-fea1-4b6b-a66c-b8dd3200689a",
+                "localeReference": "6759f148adc76698bc90c4c6",
+                "createdAt": 1734269805,
+                "lastChanged": 1734269984,
+                "createdBy": "65605bbcde1bccb4b9af6114",
+                "lastChangedBy": "65605bbcde1bccb4b9af6114",
+                "slots": []
+            }
+        ]
+    }
+}

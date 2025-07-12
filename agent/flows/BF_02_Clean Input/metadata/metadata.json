@@ -1,0 +1,23 @@
+{
+    "_id": "675c4700adc76612659db2d2",
+    "attachedFlows": [
+        "675c4718677ba77c40d9f239",
+        "675c47a8677ba71505d9f771"
+    ],
+    "referenceId": "57395a29-181d-48bd-bb4b-9cf2c04d8698",
+    "name": "BF_02_Clean Input",
+    "description": "",
+    "context": {},
+    "img": "",
+    "createdAt": 1734100736,
+    "createdBy": "65605bbcde1bccb4b9af6114",
+    "lastChanged": 1734185728,
+    "lastChangedBy": "65605bbcde1bccb4b9af6114",
+    "projectReference": "6759f148adc7667af790c4c4",
+    "organisationReference": "5f08b3f6619dfb1779da18f9",
+    "chartReference": "675c4700adc76608749db2d7",
+    "attachedLexicons": [],
+    "localeReference": "6759f148adc76698bc90c4c6",
+    "intentTrainGroupReference": "675c4700adc7667ff59db2fd",
+    "isTrainingOutOfDate": null
+}

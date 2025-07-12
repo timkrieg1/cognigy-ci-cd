@@ -1,0 +1,16 @@
+{
+    "_id": "6872639042ec168c1880dda5",
+    "referenceId": "03bb58f4-6c59-4d3e-b50d-d7d8e7b5b4bf",
+    "name": "Test",
+    "fields": {
+        "apiKey": "****************"
+    },
+    "extension": "@cognigy/generative-ai-provider",
+    "type": "AzureOpenAIProviderV2",
+    "isDeprecated": false,
+    "resourceLevel": "project",
+    "createdAt": 1752327056,
+    "lastChanged": 1752327056,
+    "createdBy": "65605bbcde1bccb4b9af6114",
+    "lastChangedBy": "65605bbcde1bccb4b9af6114"
+}

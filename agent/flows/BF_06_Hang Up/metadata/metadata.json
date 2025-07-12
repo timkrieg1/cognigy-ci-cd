@@ -1,0 +1,20 @@
+{
+    "_id": "675fed47677ba7b5fcdf8d4b",
+    "attachedFlows": [],
+    "referenceId": "08062cce-6e8d-409b-8f89-4bec019ad26f",
+    "name": "BF_06_Hang Up",
+    "description": "",
+    "context": {},
+    "img": "",
+    "createdAt": 1734339911,
+    "createdBy": "65605bbcde1bccb4b9af6114",
+    "lastChanged": 1734340221,
+    "lastChangedBy": "65605bbcde1bccb4b9af6114",
+    "projectReference": "6759f148adc7667af790c4c4",
+    "organisationReference": "5f08b3f6619dfb1779da18f9",
+    "chartReference": "675fed47677ba71f39df8d50",
+    "attachedLexicons": [],
+    "localeReference": "6759f148adc76698bc90c4c6",
+    "intentTrainGroupReference": "675fed47677ba75f53df8d76",
+    "isTrainingOutOfDate": null
+}

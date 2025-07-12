@@ -1,0 +1,16 @@
+{
+    "No User Input": {
+        "metadata": {
+            "_id": "675fe60dadc766563da65d78",
+            "tags": [],
+            "name": "No User Input",
+            "description": "",
+            "referenceId": "7e016ae8-c36f-43c1-bbe6-c4f67dd0b3b1",
+            "isDisabled": false,
+            "localeReference": "6759f148adc76698bc90c4c6",
+            "biasTowardsParentOrChildIntents": "parents",
+            "parentIntentId": null
+        },
+        "training_sentences": []
+    }
+}

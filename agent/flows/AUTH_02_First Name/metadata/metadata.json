@@ -1,0 +1,20 @@
+{
+    "_id": "6837114fdb662b3e23b6117c",
+    "referenceId": "3867e572-520c-4b2a-87fb-b3e68207de97",
+    "name": "AUTH_02_First Name",
+    "description": "validates the user's first name against the data from the backend",
+    "context": {},
+    "attachedFlows": [],
+    "img": "",
+    "projectReference": "6759f148adc7667af790c4c4",
+    "organisationReference": "5f08b3f6619dfb1779da18f9",
+    "createdAt": 1748439375,
+    "lastChanged": 1748611848,
+    "createdBy": "6836dd5029560722d316de0b",
+    "lastChangedBy": "6836dd5029560722d316de0b",
+    "chartReference": "6837114fdb662b3e23b61181",
+    "attachedLexicons": [],
+    "localeReference": "6759f148adc76698bc90c4c6",
+    "intentTrainGroupReference": "6837114fdb662b3e23b611a7",
+    "isTrainingOutOfDate": null
+}
