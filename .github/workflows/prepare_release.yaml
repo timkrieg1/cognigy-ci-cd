@@ -40,11 +40,6 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Set Bot IDs
-        id: set_bot_ids
-        run: |
-          USE_CASE="${{ github.event.inputs.useCase }}"
-
       - name: Run Extraction Script
         env:
           USE_CASE: ${{ github.event.inputs.useCase }}
