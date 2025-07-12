@@ -2,9 +2,6 @@
     "_id": "6872635442ec168c1880dcab",
     "name": "TestAgent",
     "referenceId": "f99b73f3-81f0-44e7-9291-6107f5984d89",
-    "imageOptimizedFormat": true,
-    "instructions": "- Only introduce yourself at the beginning of a conversation or when asked.\n- Ask a single follow-up question to keep the conversation going.",
-    "description": "Test",
     "speakingStyle": {
         "formality": "balanced",
         "completeness": "balanced"
@@ -24,12 +21,15 @@
         "avoidCopyrightInfringements": true,
         "preventJailbreakAndManipulation": true
     },
+    "instructions": "- Only introduce yourself at the beginning of a conversation or when asked.\n- Ask a single follow-up question to keep the conversation going.",
     "contactProfilesOption": "completeProfile",
     "contactProfilesSelected": [],
+    "imageOptimizedFormat": true,
+    "description": "Test",
     "projectReference": "6759f148adc7667af790c4c4",
+    "organisationReference": "5f08b3f6619dfb1779da18f9",
     "createdAt": 1752326996,
     "lastChanged": 1752326996,
     "createdBy": "65605bbcde1bccb4b9af6114",
-    "lastChangedBy": "65605bbcde1bccb4b9af6114",
-    "organisationReference": "5f08b3f6619dfb1779da18f9"
+    "lastChangedBy": "65605bbcde1bccb4b9af6114"
 }
