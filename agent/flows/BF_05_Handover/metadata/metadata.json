@@ -1,0 +1,20 @@
+{
+    "_id": "675d89f6adc766f408a27a4c",
+    "attachedFlows": [],
+    "referenceId": "5695db90-1987-429a-bd29-0dc89c2cd9f3",
+    "name": "BF_05_Handover",
+    "description": "",
+    "context": {},
+    "img": "",
+    "createdAt": 1734183414,
+    "createdBy": "65605bbcde1bccb4b9af6114",
+    "lastChanged": 1734184428,
+    "lastChangedBy": "65605bbcde1bccb4b9af6114",
+    "projectReference": "6759f148adc7667af790c4c4",
+    "organisationReference": "5f08b3f6619dfb1779da18f9",
+    "chartReference": "675d89f6adc76675afa27a51",
+    "attachedLexicons": [],
+    "localeReference": "6759f148adc76698bc90c4c6",
+    "intentTrainGroupReference": "675d89f6adc766048ba27a77",
+    "isTrainingOutOfDate": null
+}

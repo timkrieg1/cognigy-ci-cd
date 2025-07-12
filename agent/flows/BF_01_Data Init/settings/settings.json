@@ -1,0 +1,16 @@
+{
+    "_id": "6759f1bb095dcdf220da429a",
+    "continueExecutionAfterAttachedFlow": false,
+    "continueExecutionAfterDefaultReply": false,
+    "continueExecutionAfterNegativeConfirmation": false,
+    "flowIntentMappingOrder": "joint",
+    "useAttachedFlowThresholds": true,
+    "useAttachedFlowContinueAfterDefaultReply": true,
+    "useAttachedFlowPassDefaultRepliesIntoFlow": true,
+    "passDefaultRepliesIntoFlow": false,
+    "implicitSlotParsing": "disabled",
+    "useAttachedFlowImplicitSlotParsing": false,
+    "lexiconSlotsWithSubMatches": false,
+    "useIntentDefaultRepliesAsExamples": true,
+    "localeSettings": []
+}

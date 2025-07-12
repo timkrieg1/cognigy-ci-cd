@@ -1,0 +1,23 @@
+{
+    "_id": "675c4b09adc7661d5a9dd47f",
+    "attachedFlows": [
+        "675c4718677ba77c40d9f239",
+        "675c47a8677ba71505d9f771"
+    ],
+    "referenceId": "1e0387fb-8933-46ad-9d01-ec1673296147",
+    "name": "BF_04_Error Message",
+    "description": "",
+    "context": {},
+    "img": "",
+    "createdAt": 1734101769,
+    "createdBy": "65605bbcde1bccb4b9af6114",
+    "lastChanged": 1734174129,
+    "lastChangedBy": "65605bbcde1bccb4b9af6114",
+    "projectReference": "6759f148adc7667af790c4c4",
+    "organisationReference": "5f08b3f6619dfb1779da18f9",
+    "chartReference": "675c4b09adc766da729dd484",
+    "attachedLexicons": [],
+    "localeReference": "6759f148adc76698bc90c4c6",
+    "intentTrainGroupReference": "675c4b09adc76694c69dd4aa",
+    "isTrainingOutOfDate": null
+}

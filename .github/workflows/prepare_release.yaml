@@ -52,6 +52,7 @@ jobs:
           COGNIGY_API_KEY_PROD: ${{ secrets.COGNIGY_API_KEY_PROD }}
           MAX_SNAPSHOTS: ${{ vars.MAX_SNAPSHOTS }}
           RELEASE_DESCRIPTION: ${{ github.event.inputs.releaseDescription }}
+          PYTHONUNBUFFERED: 1
           
           
         run: |

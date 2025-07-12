@@ -1,0 +1,69 @@
+[
+    {
+        "children": [],
+        "_id": "675c4b09adc76679a89dd48b",
+        "node": "675c4b09adc76659439dd48a",
+        "next": "675d64b0677ba74aaadd6bc4",
+        "_data": {
+            "_id": "675c4b09adc76659439dd48a",
+            "referenceId": "8912bca9-96a5-498f-8a04-cc0394668cbd",
+            "type": "start",
+            "label": "Start",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isDisabled": false,
+            "isEntryPoint": true,
+            "extension": "@cognigy/basic-nodes",
+            "config": {},
+            "preview": "",
+            "localeReference": "6759f148adc76698bc90c4c6"
+        }
+    },
+    {
+        "children": [],
+        "_id": "675c4b09adc76664189dd498",
+        "node": "675c4b09adc76669cb9dd495",
+        "next": null,
+        "_data": {
+            "_id": "675c4b09adc76669cb9dd495",
+            "referenceId": "175cba89-9820-489a-aa56-81516146f93e",
+            "type": "end",
+            "label": "End",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isDisabled": false,
+            "isEntryPoint": false,
+            "extension": "@cognigy/basic-nodes",
+            "config": {},
+            "preview": "",
+            "localeReference": "6759f148adc76698bc90c4c6"
+        }
+    },
+    {
+        "children": [],
+        "_id": "675d64b0677ba74a99dd6bc7",
+        "node": "675d64b0677ba74aaadd6bc4",
+        "next": "675c4b09adc76669cb9dd495",
+        "_data": {
+            "_id": "675d64b0677ba74aaadd6bc4",
+            "referenceId": "be54603c-c60f-49fc-abac-1be546096d35",
+            "type": "code",
+            "label": "PLACEHOLDER",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isDisabled": false,
+            "isEntryPoint": false,
+            "extension": "@cognigy/basic-nodes",
+            "config": {
+                "code": "/* \r\n\r\n**PLACEHOLDER**\r\n\r\nDescription:\r\n\r\nAdd a say node to output a Error Message to the user and add a handover to a human agent\r\n */",
+                "hasError": false,
+                "transpiled": ""
+            },
+            "preview": "",
+            "localeReference": "6759f148adc76698bc90c4c6"
+        }
+    }
+]
