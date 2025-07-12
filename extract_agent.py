@@ -18,12 +18,9 @@ required_vars = [
     "COGNIGY_API_KEY_DEV",
     "COGNIGY_API_KEY_PROD",
     "USE_CASE",
-    "COGNIGY_PROJECT_ID_DEV",
-    "COGNIGY_PROJECT_ID_PROD",
     "MAX_SNAPSHOTS",
     "RELEASE_DESCRIPTION",
     "RUN_AUTOMATED_TEST",
-    "PLAYBOOK_PREFIXES"
 ]
 
 # --- Find missing environment variables ---
