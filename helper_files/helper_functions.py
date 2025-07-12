@@ -638,11 +638,6 @@ class CognigyAPIClient:
             r.raise_for_status()
             resource_data = r.json()
 
-            # -- Delete binary image from aiAgent ---
-            if endpoint == "aiagents":
-                if "image" in resource_data:
-                    del resource_data["image"]
-
             all_resource_data[resource_data["name"]] = resource_data
 
         os.makedirs(output_path, exist_ok=True)
