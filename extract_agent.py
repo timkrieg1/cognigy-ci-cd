@@ -5,49 +5,92 @@ import sys
 import shutil
 import subprocess
 from datetime import datetime, timezone
+import json
+import zipfile
 
-#Load environment variables
+# --- Load environment variables ---
 load_dotenv(override=True)
+
+# --- Check for required environment variables ---
+required_vars = [
+    "COGNIGY_BASE_URL_DEV",
+    "COGNIGY_BASE_URL_PROD",
+    "COGNIGY_API_KEY_DEV",
+    "COGNIGY_API_KEY_PROD",
+    "USE_CASE",
+    "COGNIGY_PROJECT_ID_DEV",
+    "COGNIGY_PROJECT_ID_PROD",
+    "MAX_SNAPSHOTS",
+    "RELEASE_DESCRIPTION",
+    "RUN_AUTOMATED_TEST",
+    "PLAYBOOK_PREFIXES"
+]
+
+# --- Find missing environment variables ---
+missing_vars = [var for var in required_vars if os.getenv(var) is None]
+if missing_vars:
+    raise EnvironmentError(f"Missing required environment variable(s): {', '.join(missing_vars)}")
+
+# --- Assign environment variables ---
 base_url_dev = os.getenv("COGNIGY_BASE_URL_DEV")
+base_url_test = os.getenv("COGNIGY_BASE_URL_TEST")
 base_url_prod = os.getenv("COGNIGY_BASE_URL_PROD")
 api_key_dev = os.getenv("COGNIGY_API_KEY_DEV")
+api_key_test = os.getenv("COGNIGY_API_KEY_TEST")
 api_key_prod = os.getenv("COGNIGY_API_KEY_PROD")
 bot_name = os.getenv("USE_CASE")
-project_id_dev = os.getenv("COGNIGY_PROJECT_ID_DEV")
-project_id_prod = os.getenv("COGNIGY_PROJECT_ID_PROD")
 max_snapshots = int(os.getenv("MAX_SNAPSHOTS"))
 release_description = os.getenv("RELEASE_DESCRIPTION")
+run_automated_test = os.getenv("RUN_AUTOMATED_TEST").lower() == "true"
 
-# --- Use bot_name for all use-case logic ---
-if not bot_name:
-    bot_name = "agent"
+# --- Get bot mappings ---
+with open("bot_mapping.json", "r") as f:
+    bot_mappings = json.load(f)
+
+project_id_dev = bot_mappings[bot_name]["dev"]
+project_id_test = bot_mappings[bot_name]["test"]
+project_id_prod = bot_mappings[bot_name]["prod"]
+locales = bot_mappings[bot_name]["locales"]
+playbook_prefixes = bot_mappings[bot_name].get("playbook_prefixes", None)
+playbook_flows = bot_mappings[bot_name].get("playbook_flow", None)
 
 # --- Prepare agent folder structure ---
 agent_folder = "agent"
 if os.path.exists(agent_folder):
     shutil.rmtree(agent_folder)
-os.makedirs("agent/flows", exist_ok=True)
-os.makedirs("agent/connections", exist_ok=True)
-os.makedirs("agent/snapshots", exist_ok=True)
 
-#Instantiate Cognigy Dev Client
+# --- Instantiate Cognigy Dev Client ---
 CognigyAPIClientDev = CognigyAPIClient(
     base_url=base_url_dev,
     api_key=api_key_dev,
     project_id=project_id_dev,
-    bot_name=bot_name
+    bot_name=bot_name,
+    locales=locales,
+    playbook_prefixes=playbook_prefixes if run_automated_test else None,
+    playbook_flows=playbook_flows if run_automated_test else None
 )
+
+# --- Run automated tests ---
+if run_automated_test:
+    automated_tests_passed = CognigyAPIClientDev.run_automated_tests()
+    try:
+        if not automated_tests_passed:
+            raise RuntimeError("Automated tests failed. Agent extraction aborted.")
+    except RuntimeError as e:
+        print(e)
+        sys.exit(1)
+
+    print("Automated tests passed successfully.")
 
 #Start fetching data for package creation
 flow_ids = CognigyAPIClientDev.get_flow_ids()
 lexicon_ids = CognigyAPIClientDev.get_lexicon_ids()
 connection_ids = CognigyAPIClientDev.get_connection_ids()
 nlu_connector_ids = CognigyAPIClientDev.get_nluconnector_ids()
-connection_details = CognigyAPIClientDev.get_connection_ids()
-ai_agents = CognigyAPIClientDev.get_aiagent_ids()
-large_language_models = CognigyAPIClientDev.get_largelanguagemodel_ids()
-knowledge_stores = CognigyAPIClientDev.get_knowledgestore_ids()
-functions = CognigyAPIClientDev.get_function_ids()
+ai_agent_ids = CognigyAPIClientDev.get_aiagent_ids()
+large_language_model_ids = CognigyAPIClientDev.get_largelanguagemodel_ids()
+knowledge_store_ids = CognigyAPIClientDev.get_knowledgestore_ids()
+function_ids = CognigyAPIClientDev.get_function_ids()
 
 #Combine to package ressource list
 package_ressource_ids = [
@@ -55,10 +98,9 @@ package_ressource_ids = [
     *lexicon_ids,
     *connection_ids,
     *nlu_connector_ids,
-    *connection_details,
-    *ai_agents,
-    *large_language_models,
-    *knowledge_stores
+    *ai_agent_ids,
+    *large_language_model_ids,
+    *knowledge_store_ids
 ]
 
 #Create package
@@ -71,6 +113,18 @@ CognigyAPIClientDev.download_package()
 snapshot_name = CognigyAPIClientDev.download_snapshot(
     max_snapshots=max_snapshots,
     release_description=release_description
+)
+
+# --- Extract all agent ressources by ids ---
+CognigyAPIClientDev.extract_agent_resources_by_ids(
+    flow_ids=flow_ids,
+    lexicon_ids=lexicon_ids,
+    connection_ids=connection_ids,
+    nlu_connector_ids=nlu_connector_ids,
+    ai_agent_ids=ai_agent_ids,
+    large_language_model_ids=large_language_model_ids,
+    knowledge_store_ids=knowledge_store_ids,
+    function_ids=function_ids
 )
 
 # --- Git branch creation and commit logic ---
