@@ -389,7 +389,7 @@ class CognigyAPIClient:
             playbook_runs[locale] = []
             for playbook in playbooks:
                 r = self.session.post(
-                    url=f"{self.base_url}/playbooks/{playbook["playbook_id"]}/schedule",
+                    url=f"{self.base_url}/playbooks/{playbook['playbook_id']}/schedule",
                     json={
                         "entrypoint": self.project_id,
                         "flowId": self.playbook_flows[locale],
@@ -557,7 +557,7 @@ class CognigyAPIClient:
             chart_nodes_data = []
             for node in chart:
                 r = self.session.get(
-                    url=f"{self.base_url}/flows/{flow_id}/chart/nodes/{node["node"]}"
+                    url=f"{self.base_url}/flows/{flow_id}/chart/nodes/{node['node']}"
                 )
                 r.raise_for_status()
                 node_data = r.json()
