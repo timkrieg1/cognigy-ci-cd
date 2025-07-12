@@ -1,3 +1,5 @@
+from tqdm import tqdm
+
 import requests  # --- HTTP requests for Cognigy API ---
 import json  # --- JSON serialization/deserialization ---
 import os  # --- File and directory operations ---
@@ -540,8 +542,8 @@ class CognigyAPIClient:
             None
         """
         all_flow_data = {}
-        # --- Iterate over each flow and fetch all information ---
-        for flow_id in flow_ids:
+        # --- Iterate over flows with progress bar for extraction ---
+        for flow_id in tqdm(flow_ids, desc="Extracting flows", unit="flow"):
             flow_data = {
                 "metadata": {},
                 "chart": [],
