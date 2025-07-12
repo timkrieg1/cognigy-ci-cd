@@ -1,16 +1,17 @@
-import requests
-import json
-import os
-import dotenv
-from typing import List
-import re
-from datetime import datetime
-import time
+import requests  # --- HTTP requests for Cognigy API ---
+import json  # --- JSON serialization/deserialization ---
+import os  # --- File and directory operations ---
+import dotenv  # --- Environment variable management ---
+from typing import List  # --- Type hinting for lists ---
+import re  # --- Regular expressions for string cleaning ---
+from datetime import datetime  # --- Date and time operations ---
+import time  # --- Sleep and timing utilities ---
 
 def clean_base_url(base_url: str) -> str:
     """
     Cleans the base URL by removing trailing slashes.
     """
+    # --- Remove trailing slashes and '/new' from base URL ---
     return re.sub(r'/new/?$|/$', '', base_url.strip())
 
 class CognigyAPIClient:
@@ -33,10 +34,10 @@ class CognigyAPIClient:
     """
 
     def __init__(self,base_url: str = None, api_key: dict = None, project_id: str = None, bot_name: str = None, playbook_prefixes: List[str] = None, locales: dict = None, playbook_flows: dict = None):
-        
+        # --- Validate required parameters ---
         if (not base_url or not api_key or not project_id or not bot_name or not locales):
             raise ValueError("Cannot instantiate Congigy API Client. Base URL, API Key, and Project ID and Bot Name must be provided.")
-        
+        # --- Initialize API client attributes ---
         self.base_url = f"{clean_base_url(base_url)}/new/v2.0"
         self.api_key = api_key
         self.project_id = project_id
@@ -46,6 +47,7 @@ class CognigyAPIClient:
         self.locales = locales
         self.playbook_prefixes = playbook_prefixes
         self.playbook_flows = playbook_flows
+        # --- Set up request headers and session ---
         self.headers = {
             "Content-Type": "application/json",
             "Accept": "application/json",
@@ -53,12 +55,14 @@ class CognigyAPIClient:
         }
         self.session = requests.Session()
         self.session.headers.update(self.headers)
+        # --- Default query parameters for API requests ---
         self.params = {
             "limit": 100,
             "projectId": self.project_id
         }
 
     def get(self, endpoint: str, params: dict = None) -> List[dict]:
+        # --- Generic GET request with pagination support ---
         url = f"{self.base_url}/{endpoint}"
         next_cursor = None
         current_params = self.params.copy() if not params else params.copy()
@@ -68,9 +72,9 @@ class CognigyAPIClient:
             if next_cursor:
                 current_params["next"] = next_cursor
 
-            #Fetch data from the API
+            # --- Fetch data from the API ---
             response = self.session.get(url = url, params=current_params)
-            response.raise_for_status()  # Raise an error for bad responses
+            response.raise_for_status()  # --- Raise an error for bad responses ---
             data = response.json()
             
             items = data.get("items", [])
@@ -78,7 +82,7 @@ class CognigyAPIClient:
             total = data.get("total", 0)
             next_cursor = data.get("nextCursor")
 
-            #End the loop when 
+            # --- End the loop when no more pages ---
             if not next_cursor or len(items) >= total:
                 break
 
@@ -90,10 +94,9 @@ class CognigyAPIClient:
         """
         flow_ids = []
         flows = self.get("flows")
-
+        # --- Collect all flow IDs ---
         for flow in flows:
             flow_ids.append(flow["_id"])
-        
         return flow_ids
 
     
@@ -103,10 +106,9 @@ class CognigyAPIClient:
         """
         lexcion_ids = []
         lexcions = self.get("lexicons")
-
+        # --- Collect all lexicon IDs ---
         for lexcion in lexcions:
             lexcion_ids.append(lexcion["_id"])
-        
         return lexcion_ids
     
     def get_nluconnector_ids(self) -> List[dict]:
@@ -115,10 +117,9 @@ class CognigyAPIClient:
         """
         nluconnector_ids = []
         nluconnectors = self.get("nluconnectors")
-
+        # --- Collect all NLU connector IDs ---
         for nluconnector in nluconnectors:
             nluconnector_ids.append(nluconnector["_id"])
-
         return nluconnector_ids
 
     def get_connection_ids(self) -> List[dict]:
@@ -127,10 +128,9 @@ class CognigyAPIClient:
         """
         connection_ids = []
         connections = self.get("connections")
-
+        # --- Collect all connection IDs ---
         for connection in connections:
             connection_ids.append(connection["_id"])
-
         return connection_ids
 
     def get_aiagent_ids(self) -> List[dict]:
@@ -139,10 +139,9 @@ class CognigyAPIClient:
         """
         aiagent_ids = []
         aiagents = self.get("aiagents")
-
+        # --- Collect all AI agent IDs ---
         for aiagent in aiagents:
             aiagent_ids.append(aiagent["_id"])
-
         return aiagent_ids
 
     def get_largelanguagemodel_ids(self) -> List[dict]:
@@ -151,10 +150,9 @@ class CognigyAPIClient:
         """
         llm_ids = []
         llms = self.get("largelanguagemodels")
-
+        # --- Collect all large language model IDs ---
         for llm in llms:
             llm_ids.append(llm["_id"])
-
         return llm_ids
 
     def get_knowledgestore_ids(self) -> List[dict]:
@@ -163,10 +161,9 @@ class CognigyAPIClient:
         """
         knowledgestore_ids = []
         knowledgestores = self.get("knowledgestores")
-
+        # --- Collect all knowledge store IDs ---
         for knowledgestore in knowledgestores:
             knowledgestore_ids.append(knowledgestore["_id"])
-
         return knowledgestore_ids
 
     def get_function_ids(self) -> List[dict]:
@@ -175,16 +172,16 @@ class CognigyAPIClient:
         """
         function_ids = []
         functions = self.get("functions")
-
+        # --- Collect all function IDs ---
         for function in functions:
             function_ids.append(function["_id"])
-
         return function_ids
     
     def create_package(self, resource_ids: List[str]) -> dict:
         """
         Creates a new package with the specified resources.
         """
+        # --- Generate package name with timestamp ---
         now = datetime.now().strftime("%Y%m%d_%H%M%S")
         self.package_name = f"Cognigy-CI-CD-Package_{self.bot_name}_{now}"
         payload = {
@@ -194,6 +191,7 @@ class CognigyAPIClient:
             "projectId": self.project_id
         }
 
+        # --- Create package via API ---
         response = self.session.post(f"{self.base_url}/packages", json=payload)
         response.raise_for_status()
         return response.json
@@ -202,7 +200,7 @@ class CognigyAPIClient:
         """
         Downloads the package created by the CI/CD pipeline.
         """
-        #Fetch the latest package to get the package ID
+        # --- Fetch the latest package to get the package ID ---
         params = {
             "limit": 1,
             "projectId": self.project_id
@@ -221,10 +219,10 @@ class CognigyAPIClient:
             if package_name == self.package_name:
                 package_id = data[0]["_id"]
                 break
-        
+        # --- Download the package file with retry logic ---
         prev_size = 0
         while True:
-            # Create download link
+            # --- Create download link ---
             response = self.session.post(
             url=f"{self.base_url}/packages/{package_id}/downloadLink",
             json={
@@ -235,7 +233,7 @@ class CognigyAPIClient:
             response.raise_for_status()
             download_link = response.json().get("downloadLink", "")
             print(download_link)
-            # Download the file
+            # --- Download the file ---
             target_dir = os.path.join("agent", "package")
             os.makedirs(target_dir, exist_ok=True)
             package_path = os.path.join(target_dir, f"{self.package_name}.zip")
@@ -254,14 +252,14 @@ class CognigyAPIClient:
                 continue
 
             if prev_size == 0:
-            # First non-empty download, check again
+                # --- First non-empty download, check again ---
                 prev_size = curr_size
                 print("Zip file is not empty, checking again in 5 seconds to validate full package...")
                 time.sleep(5)
                 continue
 
             if curr_size != prev_size:
-            # Size changed, possible background loading
+                # --- Size changed, possible background loading ---
                 prev_size = curr_size
                 print("Zip file size changed, checking again in 5 seconds...")
                 time.sleep(5)
@@ -274,21 +272,21 @@ class CognigyAPIClient:
         """
         Prepares the snapshot for download.
         """
-        print("Preparing snapshot for download...")
-        # First check if the max amount of snapshots is reached
+        print("Preparing snapshot for download...", flush=True)
+        # --- Check if the max amount of snapshots is reached ---
         response = self.session.get(url=f"{self.base_url}/snapshots", params=self.params)
         response.raise_for_status()
         snapshots = response.json().get("items", [])
-        print(f"Current number of snapshots: {len(snapshots)}")
-        print(f"Max allowed snapshots: {max_snapshots}")
+        print(f"Current number of snapshots: {len(snapshots)}", flush=True)
+        print(f"Max allowed snapshots: {max_snapshots}", flush=True)
 
         if len(snapshots) >= int(max_snapshots):
-            # Delete the oldest snapshot
+            # --- Delete the oldest snapshot ---
             oldest_snapshot = snapshots[-1]
             snapshot_id = oldest_snapshot["_id"]
             self.session.delete(url=f"{self.base_url}/snapshots/{snapshot_id}")
             response.raise_for_status()
-            # Poll until the number of snapshots is less than max_snapshots
+            # --- Poll until the number of snapshots is less than max_snapshots ---
             while True:
                 poll_response = self.session.get(url=f"{self.base_url}/snapshots", params=self.params)
                 poll_response.raise_for_status()
@@ -296,10 +294,9 @@ class CognigyAPIClient:
                 if len(poll_snapshots) < int(max_snapshots):
                     break
                     time.sleep(2)
-            print(f"Deleted oldest snapshot: {snapshot_id}")
+            print(f"Deleted oldest snapshot: {snapshot_id}", flush=True)
 
-
-        # Determine the new snapshot name
+        # --- Determine the new snapshot name ---
         today_str = datetime.now().strftime("%d_%m_%Y")
         base_snapshot_name = f"{self.bot_name}_{today_str}"
         new_snapshot_name = ""
@@ -307,14 +304,13 @@ class CognigyAPIClient:
         if not existing_names:
             new_snapshot_name = base_snapshot_name
         else:
-            # Find the next available suffix
+            # --- Find the next available suffix ---
             suffix = 1
             while f"{base_snapshot_name}_{suffix}" in existing_names:
                 suffix += 1
             new_snapshot_name = f"{base_snapshot_name}_{suffix}"
-        
         self.snapshot_name = new_snapshot_name
-        # Create a new snapshot
+        # --- Create a new snapshot ---
         response = self.session.post(
             url=f"{self.base_url}/snapshots",
             json={
@@ -324,10 +320,10 @@ class CognigyAPIClient:
             }
         )
         response.raise_for_status()
-        print("Created task to create new snapshot")
-        print("Polling for snapshot to be created...")
+        print("Created task to create new snapshot", flush=True)
+        print("Polling for snapshot to be created...", flush=True)
 
-        #Get all snapshots again to get snapshot id
+        # --- Get all snapshots again to get snapshot id ---
         snapshot_id = None
         while snapshot_id is None:
             response = self.session.get(url=f"{self.base_url}/snapshots", params=self.params)
@@ -335,15 +331,15 @@ class CognigyAPIClient:
             snapshots = response.json().get("items", [])
             snapshot_id = next((snapshot["_id"] for snapshot in snapshots if snapshot["name"] == self.snapshot_name), None)
             if snapshot_id is None:
-                print("Snapshot not found, retrying in 5 seconds...")
+                print("Snapshot not found, retrying in 5 seconds...", flush=True)
                 time.sleep(5)
-        print(f"Snapshot was found, preparing download...")
+        print(f"Snapshot was found, preparing download...", flush=True)
 
-        # Package snapshot
+        # --- Package snapshot ---
         response = self.session.post(url=f"{self.base_url}/snapshots/{snapshot_id}/package")
         response.raise_for_status()
 
-        # Poll for the snapshot to be packaged and download the actual snapshot file
+        # --- Poll for the snapshot to be packaged and download the actual snapshot file ---
         download_link_url = f"{self.base_url}/snapshots/{snapshot_id}/downloadLink"
         target_dir = os.path.join("agent", "snapshot")
         os.makedirs(target_dir, exist_ok=True)
@@ -353,7 +349,7 @@ class CognigyAPIClient:
             response = self.session.post(download_link_url)
             response.raise_for_status()
             download_link = response.json().get("downloadLink", "")
-            print("Attempting to download snapshot...")
+            print("Attempting to download snapshot...", flush=True)
 
             with self.session.get(download_link, stream=True) as r:
                 r.raise_for_status()
@@ -362,17 +358,16 @@ class CognigyAPIClient:
                         if chunk:
                             f.write(chunk)
 
-                # Check if the file only contains the text "csnap"
+                # --- Check if the file only contains the text 'csnap' ---
                 with open(snapshot_path, "rb") as f:
                     content = f.read()
                     if content.strip() == b"csnap":
-                        print("Downloaded file is placeholder 'csnap', retrying in 5 seconds...")
+                        print("Downloaded file is placeholder 'csnap', retrying in 5 seconds...", flush=True)
                         time.sleep(5)
                         continue
                     else:
-                        print("Snapshot downloaded successfully.")
+                        print("Snapshot downloaded successfully.", flush=True)
                         break
-                    
         return self.snapshot_name
     
     def run_automated_tests(self) -> None:
@@ -498,16 +493,40 @@ class CognigyAPIClient:
         Extracts agent resources by their IDs and returns them in a dictionary.
         """
 
-        self.extract_flow_data(flow_ids, output_path="agent/flows") if len(flow_ids) > 0 else []
-        self.extract_resource_data(lexicon_ids, output_path="agent/lexicons", endpoint="lexicons") if len(lexicon_ids) > 0 else []
-        self.extract_resource_data(connection_ids, output_path="agent/connections", endpoint="connections") if len(connection_ids) > 0 else []
-        self.extract_resource_data(nlu_connector_ids, output_path="agent/nluconnectors", endpoint="nluconnectors") if len(nlu_connector_ids) > 0 else []
-        self.extract_resource_data(ai_agent_ids, output_path="agent/aiagents", endpoint="aiagents") if len(ai_agent_ids) > 0 else []
-        self.extract_resource_data(large_language_model_ids, output_path="agent/largelanguagemodels", endpoint="largelanguagemodels") if len(large_language_model_ids) > 0 else []
-        self.extract_knowledge_store_data(knowledge_store_ids, output_path="agent/knowledgestores") if len(knowledge_store_ids) > 0 else []
-        self.extract_resource_data(function_ids, output_path="agent/functions", endpoint="functions") if len(function_ids) > 0 else []
+        if len(flow_ids) > 0:
+            print(f"Extracting {len(flow_ids)} flows...", flush=True)
+            self.extract_flow_data(flow_ids, output_path="agent/flows")
+            print("Flows extraction complete.", flush=True)
+        if len(lexicon_ids) > 0:
+            print(f"Extracting {len(lexicon_ids)} lexicons...", flush=True)
+            self.extract_resource_data(lexicon_ids, output_path="agent/lexicons", endpoint="lexicons")
+            print("Lexicons extraction complete.", flush=True)
+        if len(connection_ids) > 0:
+            print(f"Extracting {len(connection_ids)} connections...", flush=True)
+            self.extract_resource_data(connection_ids, output_path="agent/connections", endpoint="connections")
+            print("Connections extraction complete.", flush=True)
+        if len(nlu_connector_ids) > 0:
+            print(f"Extracting {len(nlu_connector_ids)} NLU connectors...", flush=True)
+            self.extract_resource_data(nlu_connector_ids, output_path="agent/nluconnectors", endpoint="nluconnectors")
+            print("NLU connectors extraction complete.", flush=True)
+        if len(ai_agent_ids) > 0:
+            print(f"Extracting {len(ai_agent_ids)} AI agents...", flush=True)
+            self.extract_resource_data(ai_agent_ids, output_path="agent/aiagents", endpoint="aiagents")
+            print("AI agents extraction complete.", flush=True)
+        if len(large_language_model_ids) > 0:
+            print(f"Extracting {len(large_language_model_ids)} large language models...", flush=True)
+            self.extract_resource_data(large_language_model_ids, output_path="agent/largelanguagemodels", endpoint="largelanguagemodels")
+            print("Large language models extraction complete.", flush=True)
+        if len(knowledge_store_ids) > 0:
+            print(f"Extracting {len(knowledge_store_ids)} knowledge stores...", flush=True)
+            self.extract_knowledge_store_data(knowledge_store_ids, output_path="agent/knowledgestores")
+            print("Knowledge stores extraction complete.", flush=True)
+        if len(function_ids) > 0:
+            print(f"Extracting {len(function_ids)} functions...", flush=True)
+            self.extract_resource_data(function_ids, output_path="agent/functions", endpoint="functions")
+            print("Functions extraction complete.", flush=True)
 
-        print("Extracted all agent resources successfully.")
+        print("All agent resources have been extracted successfully.", flush=True)
     
     def extract_flow_data(self, flow_ids: list[str], output_path: str) -> list[dict]:
         """
