@@ -631,13 +631,13 @@ class CognigyAPIClient:
             endpoint (str): API endpoint for the resource type (e.g., 'lexicons', 'connections').
         """
         all_resource_data = {}
-        for resource_id in resource_ids:
+        # --- Iterate over resources with progress bar for extraction ---
+        for resource_id in tqdm(resource_ids, desc=f"Extracting {endpoint}", unit=endpoint[:-1] if endpoint.endswith('s') else endpoint):
             r = self.session.get(
                 url=f"{self.base_url}/{endpoint}/{resource_id}"
             )
             r.raise_for_status()
             resource_data = r.json()
-
             all_resource_data[resource_data["name"]] = resource_data
 
         os.makedirs(output_path, exist_ok=True)
@@ -656,7 +656,8 @@ class CognigyAPIClient:
         """
 
         all_knowledge_store_data = {}
-        for knowledge_store_id in knowledge_store_ids:
+        # --- Iterate over knowledge stores with progress bar for extraction ---
+        for knowledge_store_id in tqdm(knowledge_store_ids, desc="Extracting knowledge stores", unit="store"):
             # --- Fetch knowledge store metadata ---
             knowledge_store_data = {
                 "metadata": {},
@@ -692,7 +693,6 @@ class CognigyAPIClient:
             metadata_file_path = os.path.join(store_sub_dir, "metadata.json")
             with open(metadata_file_path, "w", encoding="utf-8") as f:
                 json.dump(store_data["metadata"], f, indent=4, ensure_ascii=False)
-            
             # --- Save each knowledge source in its own file ---
             for knowledge_source_name, source_data in store_data["knowledge_sources"].items():
                 source_file_path = os.path.join(store_sub_dir, f"{knowledge_source_name}.json")
