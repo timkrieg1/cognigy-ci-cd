@@ -14,6 +14,12 @@ on:
         description: 'Release description'
         required: true
         type: string
+      runAutomatedTest:
+        description: 'Run automated tests'
+        required: true
+        type: boolean
+        default: true
+
 permissions:
   contents: write
   
@@ -40,8 +46,10 @@ jobs:
           USE_CASE="${{ github.event.inputs.useCase }}"
           DEV_ID=$(jq -r ".\"$USE_CASE\".dev" bot_mapping.json)
           PROD_ID=$(jq -r ".\"$USE_CASE\".prod" bot_mapping.json)
+          PLAYBOOK_PREFIXES=$(jq -r ".\"$USE_CASE\".playbook_prefixes | join(\",\")" bot_mapping.json)
           echo "COGNIGY_PROJECT_ID_DEV=$DEV_ID" >> $GITHUB_ENV
           echo "COGNIGY_PROJECT_ID_PROD=$PROD_ID" >> $GITHUB_ENV
+          echo "PLAYBOOK_PREFIXES=$PLAYBOOK_PREFIXES" >> $GITHUB_ENV
 
       - name: Run Extraction Script
         env:

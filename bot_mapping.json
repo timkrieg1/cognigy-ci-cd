@@ -1,12 +1,30 @@
 {
   "authentication": {
-    "dev": "68499f9e62b02399a43dacb3",
+    "dev": "6759f148adc7667af790c4c4",
     "test": "test-bot-id-routing",
-    "prod": "prod-bot-id-auth"
+    "prod": "prod-bot-id-auth",
+    "locales": {
+      "en-US": "dffcdcdc-ab63-40bd-ba5a-54b07f219a11",
+      "de-DE": "3fbca146-2cea-40de-beb6-f9e46613ec4c"
+    },
+    "playbook_prefixes": {
+      "en-US": ["EN_AutomatedTest"],
+      "de-DE": ["DE_AutomatedTest"]
+    },
+    "playbook_flow": {
+      "en-US": "155b8f47-2dbc-4840-939d-eb8efa7a5d37",
+      "de-DE": "155b8f47-2dbc-4840-939d-eb8efa7a5d37"
+    }
   },
   "routing": {
     "dev": "dev-bot-id-routing",
     "test": "test-bot-id-routing",
-    "prod": "prod-bot-id-routing"
+    "prod": "prod-bot-id-routing",
+    "locales": {
+      "en-US": "dffcdcdc-ab63-40bd-ba5a-54b07f219a11"
+    },
+    "playbook_prefixes": {
+      "en-US": ["AutomatedTest"]
+    }
   }
 }
