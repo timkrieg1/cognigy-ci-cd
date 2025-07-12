@@ -44,21 +44,16 @@ jobs:
         id: set_bot_ids
         run: |
           USE_CASE="${{ github.event.inputs.useCase }}"
-          DEV_ID=$(jq -r ".\"$USE_CASE\".dev" bot_mapping.json)
-          PROD_ID=$(jq -r ".\"$USE_CASE\".prod" bot_mapping.json)
-          PLAYBOOK_PREFIXES=$(jq -r ".\"$USE_CASE\".playbook_prefixes | join(\",\")" bot_mapping.json)
-          echo "COGNIGY_PROJECT_ID_DEV=$DEV_ID" >> $GITHUB_ENV
-          echo "COGNIGY_PROJECT_ID_PROD=$PROD_ID" >> $GITHUB_ENV
-          echo "PLAYBOOK_PREFIXES=$PLAYBOOK_PREFIXES" >> $GITHUB_ENV
 
       - name: Run Extraction Script
         env:
           USE_CASE: ${{ github.event.inputs.useCase }}
-          COGNIGY_PROJECT_ID_DEV: ${{ env.COGNIGY_PROJECT_ID_DEV }}
-          COGNIGY_PROJECT_ID_PROD: ${{ env.COGNIGY_PROJECT_ID_PROD }}
+          RUN_AUTOMATED_TEST: ${{ github.event.inputs.runAutomatedTest }}
           COGNIGY_BASE_URL_DEV: ${{ vars.COGNIGY_BASE_URL_DEV }}
+          COGNIGY_BASE_URL_TEST: ${{ vars.COGNIGY_BASE_URL_TEST }}
           COGNIGY_BASE_URL_PROD: ${{ vars.COGNIGY_BASE_URL_PROD }}
           COGNIGY_API_KEY_DEV: ${{ secrets.COGNIGY_API_KEY_DEV }}
+          COGNIGY_API_KEY_TEST: ${{ secrets.COGNIGY_API_KEY_TEST }}
           COGNIGY_API_KEY_PROD: ${{ secrets.COGNIGY_API_KEY_PROD }}
           MAX_SNAPSHOTS: ${{ vars.MAX_SNAPSHOTS }}
           RELEASE_DESCRIPTION: ${{ github.event.inputs.releaseDescription }}
