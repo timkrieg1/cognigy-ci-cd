@@ -1,0 +1,24 @@
+{
+    "_id": "675c56d6d02a5c7f8039ece8",
+    "attachedFlows": [
+        "675c47a8677ba71505d9f771",
+        "675c4718677ba77c40d9f239",
+        "675eda8dadc7665ba2a3b33c"
+    ],
+    "referenceId": "12790b78-9560-4894-a776-1a70d1156bfa",
+    "name": "AUTH_01_Contract",
+    "description": "",
+    "context": {},
+    "img": "",
+    "createdAt": 1734104790,
+    "createdBy": "65605bbcde1bccb4b9af6114",
+    "lastChanged": 1748503808,
+    "lastChangedBy": "6836dd5029560722d316de0b",
+    "projectReference": "6759f148adc7667af790c4c4",
+    "organisationReference": "5f08b3f6619dfb1779da18f9",
+    "chartReference": "675c56d6d02a5cd7d839eced",
+    "attachedLexicons": [],
+    "localeReference": "6759f148adc76698bc90c4c6",
+    "intentTrainGroupReference": "675c56d6d02a5cb2b339ed13",
+    "isTrainingOutOfDate": null
+}
