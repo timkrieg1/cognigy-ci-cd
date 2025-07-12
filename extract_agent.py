@@ -43,6 +43,7 @@ max_snapshots = int(os.getenv("MAX_SNAPSHOTS"))
 release_description = os.getenv("RELEASE_DESCRIPTION")
 run_automated_test = os.getenv("RUN_AUTOMATED_TEST").lower() == "true"
 
+print(f"Automated Testing: {run_automated_test}")
 # --- Get bot mappings ---
 with open("bot_mapping.json", "r") as f:
     bot_mappings = json.load(f)
