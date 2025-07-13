@@ -38,12 +38,13 @@ class CognigyAPIClient:
     def __init__(self,base_url: str = None, api_key: dict = None, project_id: str = None, bot_name: str = None, playbook_prefixes: List[str] = None, locales: dict = None, playbook_flows: dict = None):
         # --- Validate required parameters ---
         if (not base_url or not api_key or not project_id or not bot_name or not locales):
-            raise ValueError("Cannot instantiate Congigy API Client. Base URL, API Key, and Project ID and Bot Name must be provided.")
-        # --- Initialize API client attributes ---
+            raise ValueError("Cannot instantiate Cognigy API Client. Base URL, API Key, and Project ID and Bot Name must be provided.")
+        # --- Clean bot_name for branch safety ---
+        cleaned_bot_name = re.sub(r'[^A-Za-z0-9._-]', '', bot_name.replace(' ', '-'))
         self.base_url = f"{clean_base_url(base_url)}/new/v2.0"
         self.api_key = api_key
         self.project_id = project_id
-        self.bot_name = bot_name
+        self.bot_name = cleaned_bot_name
         self.package_name = ""
         self.snapshot_name = ""
         self.locales = locales
