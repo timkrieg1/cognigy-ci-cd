@@ -1,0 +1,20 @@
+name: Deploy Agent
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - agent/snapshot/**
+
+jobs:
+  post-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      # Add your post-merge steps below
+      - name: Example Step
+        run: |
+          echo "This workflow runs after a merge into main."
