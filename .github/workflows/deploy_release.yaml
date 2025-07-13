@@ -21,7 +21,7 @@ jobs:
       - name: Check last commit author for snapshot file
         run: |
           AUTHOR=$(git log -1 --pretty=format:'%an' agent/snapshot/*)
-          if [ "$AUTHOR" != "github-actions[bot]" ]; then
+          if [ "$AUTHOR" != "actions-user" ]; then
             echo "Snapshot file was manually changed by $AUTHOR. Failing pipeline."
             exit 1
           fi
