@@ -14,11 +14,11 @@
     }
   },
   "routing": {
-    "dev": "dev-bot-id-routing",
+    "dev": "686d39f3d6720fbfa3fe975a",
     "test": "test-bot-id-routing",
     "prod": "prod-bot-id-routing",
     "locales": {
-      "en-US": "dffcdcdc-ab63-40bd-ba5a-54b07f219a11"
+      "de-DE": "7ee525d9-bb31-43a4-8f4b-8131e1db9917"
     },
     "playbook_prefixes": {
       "de-DE": ["AutomatedTest"]
