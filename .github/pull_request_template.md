@@ -1,8 +1,6 @@
 ## Release Summary
 
-- **Use Case:** ${{USE_CASE}}
-- **Automated Testing Run:** ${{RUN_AUTOMATED_TEST}}
-- **Snapshot Name:** ${{SNAPSHOT_NAME}}
-- **Release Description:** ${{RELEASE_DESCRIPTION}}
+- **Automated Testing Run:** PLACEHOLDER_RUN_AUTOMATED_TEST
+- **Release Description:** PLACEHOLDER_RELEASE_DESCRIPTION
 
 ---

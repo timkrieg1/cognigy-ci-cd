@@ -58,8 +58,6 @@ jobs:
           MAX_SNAPSHOTS: ${{ vars.MAX_SNAPSHOTS }}
           RELEASE_DESCRIPTION: ${{ github.event.inputs.releaseDescription }}
           PYTHONUNBUFFERED: 1
-          
-          
         run: |
           python extract_agent.py
 
@@ -70,13 +68,14 @@ jobs:
         if: ${{ github.event.inputs.createPullRequest == 'true' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RUN_AUTOMATED_TEST: ${{ github.event.inputs.runAutomatedTest }}
-          RELEASE_DESCRIPTION: ${{ github.event.inputs.releaseDescription }}
         run: |
+          # Create PR body by replacing placeholders
+          PR_BODY=$(cat .github/pull_request_template.md)
+          PR_BODY=$(echo "$PR_BODY" | sed "s/PLACEHOLDER_RUN_AUTOMATED_TEST/${{ github.event.inputs.runAutomatedTest }}/g")
+          PR_BODY=$(echo "$PR_BODY" | sed "s/PLACEHOLDER_RELEASE_DESCRIPTION/${{ github.event.inputs.releaseDescription }}/g")
+          
           gh pr create \
             --title "Pull Request on $(git rev-parse --abbrev-ref HEAD)" \
-            --body "$(cat .github/pull_request_template.md | \
-              sed "s/\\\${{RUN_AUTOMATED_TEST}}/${RUN_AUTOMATED_TEST}/" | \
-              sed "s/\\\${{RELEASE_DESCRIPTION}}/${RELEASE_DESCRIPTION}/")" \
+            --body "$PR_BODY" \
             --base main \
             --head "$(git rev-parse --abbrev-ref HEAD)"
