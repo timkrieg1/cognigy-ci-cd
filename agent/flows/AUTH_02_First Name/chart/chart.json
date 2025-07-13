@@ -210,7 +210,7 @@
     {
         "node": "68384842f9e7663199e545f7",
         "children": [],
-        "next": "68385ee1f9e7663199e5a663",
+        "next": "687277cd432d29bf054e86e5",
         "_id": "68384842f9e7663199e545fa",
         "_data": {
             "_id": "68384842f9e7663199e545f7",
@@ -765,6 +765,30 @@
                 "transpiled": "const userInput = cc.sessionInformation.inputText.toLowerCase();\nconst expectedName = cc.constants.contract.firstname.value.toLowerCase();\nconst nameMatch = userInput.match(/\\b([a-zA-Z]+)\\b/g);\nif (nameMatch) {\n    const matchedName = nameMatch.find(word => word.toLowerCase() === expectedName);\n    if (matchedName) {\n        cc.sessionInformation.contract.firstname.confirmed = true;\n        cc.sessionInformation.contract.firstname.extractedName = matchedName;\n    }\n    else {\n        cc.sessionInformation.contract.firstname.confirmed = false;\n        cc.sessionInformation.contract.firstname.extractedName = null;\n    }\n}\nelse {\n    cc.sessionInformation.contract.firstname.confirmed = false;\n    context.extractedName = null;\n}\n"
             },
             "preview": "",
+            "localeReference": "6759f148adc76698bc90c4c6"
+        }
+    },
+    {
+        "node": "687277cd432d29bf054e86e5",
+        "children": [],
+        "next": "68385ee1f9e7663199e5a663",
+        "_id": "687277cd432d29bf054e86e8",
+        "_data": {
+            "_id": "687277cd432d29bf054e86e5",
+            "referenceId": "97739a17-a64d-4842-ad9e-25bcd43b49b7",
+            "type": "placeholder",
+            "label": "Placeholder",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isDisabled": false,
+            "isEntryPoint": false,
+            "extension": "@cognigy/basic-nodes",
+            "config": {
+                "text": "Just some new node",
+                "data": ""
+            },
+            "preview": "Just some new node",
             "localeReference": "6759f148adc76698bc90c4c6"
         }
     }
