@@ -1,0 +1,20 @@
+{
+    "_id": "686d3b93d6720fbfa3fe9f51",
+    "referenceId": "bfed12fc-6903-446f-b00c-a489411caa7b",
+    "name": "Test Connection",
+    "description": "",
+    "context": {},
+    "attachedFlows": [],
+    "img": "",
+    "projectReference": "686d39f3d6720fbfa3fe975a",
+    "organisationReference": "5f08b3f6619dfb1779da18f9",
+    "createdAt": 1751989139,
+    "lastChanged": 1751992426,
+    "createdBy": "65605bbcde1bccb4b9af6114",
+    "lastChangedBy": "65605bbcde1bccb4b9af6114",
+    "chartReference": "686d3b93d6720fbfa3fe9f56",
+    "attachedLexicons": [],
+    "localeReference": "686d39f3d6720fbfa3fe975c",
+    "intentTrainGroupReference": "686d3b93d6720fbfa3fe9f7c",
+    "isTrainingOutOfDate": null
+}
