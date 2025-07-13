@@ -70,13 +70,13 @@ jobs:
         if: ${{ github.event.inputs.createPullRequest == 'true' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_AUTOMATED_TEST: ${{ github.event.inputs.runAutomatedTest }}
+          RELEASE_DESCRIPTION: ${{ github.event.inputs.releaseDescription }}
         run: |
-          RUN_AUTOMATED_TEST="${{ github.event.inputs.runAutomatedTest }}"
-          RELEASE_DESCRIPTION="${{ github.event.inputs.releaseDescription }}"
           gh pr create \
             --title "Pull Request on $(git rev-parse --abbrev-ref HEAD)" \
             --body "$(cat .github/pull_request_template.md | \
-              sed "s/\${{RUN_AUTOMATED_TEST}}/$RUN_AUTOMATED_TEST/" | \
-              sed "s/\${{RELEASE_DESCRIPTION}}/$RELEASE_DESCRIPTION/")" \
+              sed "s/\\\${{RUN_AUTOMATED_TEST}}/$RUN_AUTOMATED_TEST/" | \
+              sed "s/\\\${{RELEASE_DESCRIPTION}}/$RELEASE_DESCRIPTION/")" \
             --base main \
             --head "$(git rev-parse --abbrev-ref HEAD)"
