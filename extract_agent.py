@@ -17,7 +17,6 @@ required_vars = [
     "COGNIGY_BASE_URL_PROD",
     "COGNIGY_API_KEY_DEV",
     "COGNIGY_API_KEY_PROD",
-    "USE_CASE",
     "MAX_SNAPSHOTS",
     "RELEASE_DESCRIPTION",
     "RUN_AUTOMATED_TEST",
@@ -35,7 +34,7 @@ base_url_prod = os.getenv("COGNIGY_BASE_URL_PROD")
 api_key_dev = os.getenv("COGNIGY_API_KEY_DEV")
 api_key_test = os.getenv("COGNIGY_API_KEY_TEST")
 api_key_prod = os.getenv("COGNIGY_API_KEY_PROD")
-bot_name = os.getenv("USE_CASE")
+bot_name = os.getenv("BOT_NAME")
 max_snapshots = int(os.getenv("MAX_SNAPSHOTS"))
 release_description = os.getenv("RELEASE_DESCRIPTION")
 run_automated_test = os.getenv("RUN_AUTOMATED_TEST").lower() == "true"
@@ -45,12 +44,12 @@ print(f"Automated Testing: {run_automated_test}")
 with open("bot_mapping.json", "r") as f:
     bot_mappings = json.load(f)
 
-project_id_dev = bot_mappings[bot_name]["dev"]
-project_id_test = bot_mappings[bot_name]["test"]
-project_id_prod = bot_mappings[bot_name]["prod"]
-locales = bot_mappings[bot_name]["locales"]
-playbook_prefixes = bot_mappings[bot_name].get("playbook_prefixes", None)
-playbook_flows = bot_mappings[bot_name].get("playbook_flow", None)
+project_id_dev = bot_mappings["dev"]
+project_id_test = bot_mappings["test"]
+project_id_prod = bot_mappings["prod"]
+locales = bot_mappings["locales"]
+playbook_prefixes = bot_mappings.get("playbook_prefixes", None)
+playbook_flows = bot_mappings.get("playbook_flow", None)
 
 # --- Prepare agent folder structure ---
 agent_folder = "agent"

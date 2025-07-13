@@ -1,27 +1,14 @@
 {
-  "authentication": {
-    "dev": "6759f148adc7667af790c4c4",
-    "test": "test-bot-id-routing",
-    "prod": "prod-bot-id-auth",
-    "locales": {
-      "de-DE": "e48512d4-5dc2-4b35-80a3-db4aac9315cd"
-    },
-    "playbook_prefixes": {
-      "de-DE": ["AutomatedTest"]
-    },
-    "playbook_flow": {
-      "de-DE": "64b86b45-52c9-4f5c-ad57-04d8b1d0a9f5"
-    }
+  "dev": "6873f7f242ec168c188334ec",
+  "test": "test-bot-id-routing",
+  "prod": "6873f5c4432d29bf054f6c68",
+  "locales": {
+    "de-DE": "09cadae1-28b7-45d3-974c-91fe2d0b4175"
   },
-  "routing": {
-    "dev": "686d39f3d6720fbfa3fe975a",
-    "test": "test-bot-id-routing",
-    "prod": "prod-bot-id-routing",
-    "locales": {
-      "de-DE": "7ee525d9-bb31-43a4-8f4b-8131e1db9917"
-    },
-    "playbook_prefixes": {
-      "de-DE": ["AutomatedTest"]
-    }
+  "playbook_prefixes": {
+    "de-DE": ["AutomatedTest"]
+  },
+  "playbook_flow": {
+    "de-DE": "64b86b45-52c9-4f5c-ad57-04d8b1d0a9f5"
   }
 }

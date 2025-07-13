@@ -3,13 +3,6 @@ name: Extract Cognigy Agent
 on:
   workflow_dispatch:
     inputs:
-      useCase:
-        description: 'Select use case'
-        required: true
-        type: choice
-        options:
-          - authentication
-          - routing
       releaseDescription:
         description: 'Release description'
         required: true
@@ -48,7 +41,6 @@ jobs:
 
       - name: Run Extraction Script
         env:
-          USE_CASE: ${{ github.event.inputs.useCase }}
           RUN_AUTOMATED_TEST: ${{ github.event.inputs.runAutomatedTest }}
           COGNIGY_BASE_URL_DEV: ${{ vars.COGNIGY_BASE_URL_DEV }}
           COGNIGY_BASE_URL_TEST: ${{ vars.COGNIGY_BASE_URL_TEST }}
