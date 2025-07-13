@@ -42,6 +42,7 @@ jobs:
       - name: Run Extraction Script
         env:
           RUN_AUTOMATED_TEST: ${{ github.event.inputs.runAutomatedTest }}
+          BOT_NAME: ${{ vars.BOT_NAME }}
           COGNIGY_BASE_URL_DEV: ${{ vars.COGNIGY_BASE_URL_DEV }}
           COGNIGY_BASE_URL_TEST: ${{ vars.COGNIGY_BASE_URL_TEST }}
           COGNIGY_BASE_URL_PROD: ${{ vars.COGNIGY_BASE_URL_PROD }}
