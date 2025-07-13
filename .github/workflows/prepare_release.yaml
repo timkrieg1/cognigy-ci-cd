@@ -80,3 +80,4 @@ jobs:
             --body "$PR_BODY" \
             --base main \
             --head "$(git rev-parse --abbrev-ref HEAD)"
+            --label "automated-test:${{ github.event.inputs.runAutomatedTest }}"
