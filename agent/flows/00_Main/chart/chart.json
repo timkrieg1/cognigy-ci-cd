@@ -1,0 +1,133 @@
+[
+    {
+        "node": "6873f80e432d29bf054f7700",
+        "children": [],
+        "next": "6873f80e432d29bf054f7701",
+        "_id": "6873f80e432d29bf054f7702",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7700",
+            "referenceId": "f6abe0b6-5999-4f24-9169-413cab5dd443",
+            "type": "start",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Start",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": true,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7703",
+        "children": [],
+        "next": null,
+        "_id": "6873f80e432d29bf054f7704",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7703",
+            "referenceId": "90a156e4-5ab9-402f-8f27-0600ef13a6ba",
+            "type": "end",
+            "extension": "@cognigy/basic-nodes",
+            "label": "End",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7701",
+        "children": [],
+        "next": "6873f80e432d29bf054f7705",
+        "_id": "6873f80e432d29bf054f7706",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7701",
+            "referenceId": "0f0ae736-91a5-4b76-85a4-a1afa09ebbd2",
+            "type": "code",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Naming Conventions",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "code": "/* \r\nTo ensure a clean, understandable and maintainable flow design predefined naming conventions for each node are used.\r\n\r\nNaming Conventions mostly follow the pattern of \"{First one or two letters of the Node}: {Brief description of content}\".\r\n\r\nThe most important node naming conventions are listed below:\r\n\r\nNode                | Example                               | Exceptions\r\n---------------------------------------------------------------------------------------------------------------\r\nSay                 | S: Welcome Prompt\r\nQuestion            | Q: Data Privacy Consent\r\nCode                | C: Filter Contract Number\r\nIf                  | User said yes?                        | If nodes do not contain a prefix, they should be a concise description of the underlying business decision\r\nLookup              |\r\nExecute             | EX: 03_Contract Number \r\nGo To               | G2: 03_Contract Number\r\nAdd to Context      | AC: someObjectName\r\nRemove from Context | RC: someObjectName\r\nOverwrite Analytics | KPI: KPI_NAME_01                      | When the Overwrite Analytics node is used to set step labels it is annotated with the prefix \"KPI\" followed by the step label name\r\nOverwrite Analytics | OA: Execution Time                    | When the Overwrite Analytics node is used to set custom fields it is annotated with the prefix \"OA\" followed by the custom values that are set\r\nHTTP Request        | HTTP: Fetch contract                  | The HTTP Request node is annotated with the prefix \"HTTP\" instead of just \"HT\" for better readability\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n */",
+                "hasError": false,
+                "transpiled": ""
+            },
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7707",
+        "children": [],
+        "next": "6873f80e432d29bf054f7703",
+        "_id": "6873f80e432d29bf054f7708",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7707",
+            "referenceId": "45130924-a321-4e7b-9ced-d2ed5ce5b152",
+            "type": "executeFlow",
+            "extension": "@cognigy/basic-nodes",
+            "label": "EX: AUTH_00_Main",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "flowNode": {
+                    "flow": "87fd5e0e-f78f-4568-8333-d13855be1a70",
+                    "node": "d299a6b7-1665-427d-8676-b378c73645df"
+                },
+                "parseIntents": true,
+                "parseKeyphrases": true,
+                "absorbContext": ""
+            },
+            "preview": {
+                "flow": "87fd5e0e-f78f-4568-8333-d13855be1a70",
+                "node": "d299a6b7-1665-427d-8676-b378c73645df"
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7705",
+        "children": [],
+        "next": "6873f80e432d29bf054f7707",
+        "_id": "6873f80e432d29bf054f7709",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7705",
+            "referenceId": "263aa2c6-823a-4ca2-92e6-3561f78a1c76",
+            "type": "executeFlow",
+            "extension": "@cognigy/basic-nodes",
+            "label": "EX: BF_01_Data Init",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "flowNode": {
+                    "flow": "3ee2d312-87b7-4aca-838e-a8607291fe7d",
+                    "node": "87ab4f39-e825-4194-bad0-7c7fc015453b"
+                },
+                "parseIntents": true,
+                "parseKeyphrases": true,
+                "absorbContext": ""
+            },
+            "preview": {
+                "flow": "3ee2d312-87b7-4aca-838e-a8607291fe7d",
+                "node": "87ab4f39-e825-4194-bad0-7c7fc015453b"
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    }
+]
