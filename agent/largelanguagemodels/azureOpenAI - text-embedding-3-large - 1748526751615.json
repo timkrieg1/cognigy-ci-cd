@@ -1,0 +1,21 @@
+{
+    "_id": "6873f80e432d29bf054f78c1",
+    "referenceId": "5447605f-6250-4d31-8d71-af475bc09966",
+    "name": "azureOpenAI - text-embedding-3-large - 1748526751615",
+    "modelType": "text-embedding-3-large",
+    "isCustomModel": false,
+    "provider": "azureOpenAI",
+    "connectionId": "113df33f-3c9b-48c8-92dc-a1c74a089296",
+    "isDefault": false,
+    "azureOpenAI": {
+        "baseCustomUrl": "https://azure-open-ai-ressource-eastus.openai.azure.com/openai/deployments/text-embedding-3-large/embeddings?api-version=2023-05-15"
+    },
+    "googleVertexAI": {},
+    "fallbacks": [],
+    "createdAt": 1748526751,
+    "lastChanged": 1752430606,
+    "createdBy": "65605bbcde1bccb4b9af6114",
+    "lastChangedBy": "65605bbcde1bccb4b9af6114",
+    "resourceLevel": "project",
+    "assignedToProjects": []
+}

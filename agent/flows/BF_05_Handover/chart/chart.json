@@ -1,0 +1,246 @@
+[
+    {
+        "node": "6873f80e432d29bf054f77d2",
+        "children": [],
+        "next": "6873f80e432d29bf054f77d3",
+        "_id": "6873f80e432d29bf054f77d4",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77d2",
+            "referenceId": "2eb483bf-d9ef-47e7-8740-4d8972b6f17b",
+            "type": "start",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Start",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": true,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77d5",
+        "children": [],
+        "next": null,
+        "_id": "6873f80e432d29bf054f77d6",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77d5",
+            "referenceId": "c1cb6aaf-fd5f-418a-98ac-c1c7abe39957",
+            "type": "end",
+            "extension": "@cognigy/basic-nodes",
+            "label": "End",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77d3",
+        "children": [],
+        "next": "6873f80e432d29bf054f77d7",
+        "_id": "6873f80e432d29bf054f77d8",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77d3",
+            "referenceId": "939c8ccc-e154-4de8-8227-457bd9d76f1d",
+            "type": "code",
+            "extension": "@cognigy/basic-nodes",
+            "label": "READ ME",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "code": "/* \r\nFlow Purpose\r\n\r\nThis flow handovers the call to a human agent in case the bot was not able to recognize a contract number or the Authentication is finished. \r\nA custom sip header is used to transfer data.\r\n\r\n\r\n\r\n---------------------------------------\r\nCONNECTION TO OTHER FLOWS\r\n\r\nThis flow invokes the following flows:\r\nHF_01_Disconnect\r\n\r\n\r\nThis flow gets invoked by the following flows:\r\nAUTH_01_Contract\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n */",
+                "hasError": false,
+                "transpiled": ""
+            },
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77d7",
+        "children": [],
+        "next": "6873f80e432d29bf054f77d9",
+        "_id": "6873f80e432d29bf054f77da",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77d7",
+            "referenceId": "eaa30a7b-c3f3-490f-8d3f-ba14899beb1f",
+            "type": "code",
+            "extension": "@cognigy/basic-nodes",
+            "label": "C: Mock Context for debugging",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "code": "try {\r\n    //Check if the sessionInformation object already exists, if not the chat was started from this flow, which means we need to initialize it for debugging\r\n    if(_.isUndefined(cc.sessionInformation)) {\r\n        cc.sessionInformation = {\r\n            \"caller\": \"+49176145265874\",\r\n            \"callee\": \"+49123456789123\",\r\n            \"recordingConsent\": true,\r\n            \"contract\": {\r\n            \"validationDecision\": \"notValid\"\r\n            },\r\n            \"inputCleaner\": {\r\n            \"inputText\": \"jgfdsgs\",\r\n            \"outputText\": \"jgfdsgs\"\r\n            }\r\n  }\r\n\r\n        cc.constants = {\r\n            \"apiBaseUrl\": \"https://api-trial.cognigy.ai/new\",\r\n\t\t    \"handoverTransferTarget\": \"+49123456789\",\r\n            \"flowControllerPercentages\": {\r\n            },\r\n            \"contract\": {\r\n                \"contractPrefixes\": [\r\n                    \"KV\",\r\n                    \"SV\"\r\n                ]\r\n    \t    }\r\n        }\r\n    }\r\n\r\n} catch(error) {\r\n    api.log(\"error\", `[BF_05_Handover; C: Mock Context for debugging] Error Message: ${error.toString()}`)\r\n\r\n}",
+                "hasError": false,
+                "transpiled": "try {\n    if (_.isUndefined(cc.sessionInformation)) {\n        cc.sessionInformation = {\n            \"caller\": \"+49176145265874\",\n            \"callee\": \"+49123456789123\",\n            \"recordingConsent\": true,\n            \"contract\": {\n                \"validationDecision\": \"notValid\"\n            },\n            \"inputCleaner\": {\n                \"inputText\": \"jgfdsgs\",\n                \"outputText\": \"jgfdsgs\"\n            }\n        };\n        cc.constants = {\n            \"apiBaseUrl\": \"https://api-trial.cognigy.ai/new\",\n            \"handoverTransferTarget\": \"+49123456789\",\n            \"flowControllerPercentages\": {},\n            \"contract\": {\n                \"contractPrefixes\": [\n                    \"KV\",\n                    \"SV\"\n                ]\n            }\n        };\n    }\n}\ncatch (error) {\n    api.log(\"error\", `[BF_05_Handover; C: Mock Context for debugging] Error Message: ${error.toString()}`);\n}\n"
+            },
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77db",
+        "children": [],
+        "next": "6873f80e432d29bf054f77dc",
+        "_id": "6873f80e432d29bf054f77dd",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77db",
+            "referenceId": "7e300325-499f-4ab7-87af-14b3f214880d",
+            "type": "addToContext",
+            "extension": "@cognigy/basic-nodes",
+            "label": "AC: transferTarget",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "key": "sessionInformation.handover.transferTarget",
+                "value": "{{cc.constants.handoverTransferTarget}}",
+                "mode": "simple"
+            },
+            "preview": "sessionInformation.handover.transferTarget",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77d9",
+        "children": [],
+        "next": "6873f80e432d29bf054f77db",
+        "_id": "6873f80e432d29bf054f77de",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77d9",
+            "referenceId": "6a377837-3700-457a-98f2-647303f5a567",
+            "type": "say",
+            "extension": "@cognigy/basic-nodes",
+            "label": "S: Handover Message",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "say": {
+                    "data": "",
+                    "linear": false,
+                    "loop": false,
+                    "text": [
+                        "Ich verbinde Sie nun mit einem unserer Mitarbeiter. Auf Wiederhören!"
+                    ],
+                    "type": "text",
+                    "_cognigy": {},
+                    "_data": {
+                        "_cognigy": {}
+                    }
+                },
+                "handoverOutput": "userAndAgent",
+                "generativeAI_rephraseOutputMode": "none",
+                "generativeAI_amountOfLastUserInputs": 5,
+                "generativeAI_customInputs": "",
+                "generativeAI_temperature": 0.7
+            },
+            "preview": {
+                "data": "",
+                "linear": false,
+                "loop": false,
+                "text": [
+                    "Ich verbinde Sie nun mit einem unserer Mitarbeiter. Auf Wiederhören!"
+                ],
+                "type": "text",
+                "_cognigy": {},
+                "_data": {
+                    "_cognigy": {}
+                }
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77df",
+        "children": [],
+        "next": "6873f80e432d29bf054f77d5",
+        "_id": "6873f80e432d29bf054f77e0",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77df",
+            "referenceId": "641a3a55-f541-46b1-905d-14c14343a3e9",
+            "type": "transfer",
+            "extension": "@cognigy/voicegateway2",
+            "label": "Transfer",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "transferType": "refer",
+                "transferTarget": "{{cc.sessionInformation.handover.transferTarget}}",
+                "referredBy": "",
+                "transferReason": "Bot initiated a transfer.",
+                "anchorMedia": false,
+                "useTransferSipHeaders": true,
+                "transferSipHeaders": {
+                    "X-Custom-Header": "YourValue"
+                },
+                "dialCallerId": "",
+                "dialMusic": "",
+                "dialTranscriptionWebhook": "",
+                "sttLabel": "",
+                "dialTimeout": 60,
+                "agentAssistEnabled": false,
+                "agentAssistHeadersKey": "X-Custom-Header",
+                "amdEnabled": false,
+                "amdRedirectOnMachineDetected": false,
+                "amdRedirectText": "",
+                "recognitionChannel": 0,
+                "sttVendor": "",
+                "sttDeepgramModel": "nova-2",
+                "sttLanguage": "",
+                "sttDisablePunctuation": false,
+                "deepgramEndpointing": false,
+                "deepgramEndpointingValue": 1000,
+                "deepgramSmartFormatting": false,
+                "googleModel": "latest_short"
+            },
+            "preview": "{{cc.sessionInformation.handover.transferTarget}}",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77dc",
+        "children": [],
+        "next": "6873f80e432d29bf054f77df",
+        "_id": "6873f80e432d29bf054f77e1",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77dc",
+            "referenceId": "5715a652-6feb-4e56-a666-abce48824686",
+            "type": "code",
+            "extension": "@cognigy/basic-nodes",
+            "label": "PLACEHOLDER",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "code": "/* \r\n\r\n**PLACEHOLDER**\r\n\r\nDescription:\r\n\r\nSet the custome sip header to ensure consistent data transfer between voicebots and agents\r\n */",
+                "hasError": false,
+                "transpiled": ""
+            },
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    }
+]
