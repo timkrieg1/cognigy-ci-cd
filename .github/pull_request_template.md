@@ -1,6 +1,5 @@
-## Release Summary
+## Release Summary <!-- A short description of the release -->
 
-- **Automated Testing Run:** PLACEHOLDER_RUN_AUTOMATED_TEST
-- **Release Description:** PLACEHOLDER_RELEASE_DESCRIPTION
-
----
+### Release Details
+- **Affected Use Cases:**
+- **Detailed Description:**
