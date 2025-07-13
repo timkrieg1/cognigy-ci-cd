@@ -21,7 +21,7 @@
       "en-US": "dffcdcdc-ab63-40bd-ba5a-54b07f219a11"
     },
     "playbook_prefixes": {
-      "en-US": ["AutomatedTest"]
+      "de-DE": ["AutomatedTest"]
     }
   }
 }
