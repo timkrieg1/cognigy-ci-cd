@@ -53,7 +53,7 @@ jobs:
           RELEASE_DESCRIPTION: ${{ github.event.inputs.releaseDescription }}
           PYTHONUNBUFFERED: 1
         run: |
-          python extract_agent.py
+          python helper_files/extract_agent.py
 
       - name: Install GitHub CLI
         run: sudo apt-get install gh
