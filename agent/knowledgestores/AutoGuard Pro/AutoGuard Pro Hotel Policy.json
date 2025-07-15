@@ -1,0 +1,147 @@
+{
+    "_id": "6873f80f432d29bf054f78c7",
+    "referenceId": "0c853c3a-8352-4ef0-9b86-4fbd6afecd95",
+    "name": "AutoGuard Pro Hotel Policy",
+    "description": "",
+    "type": "manual",
+    "status": "ready",
+    "chunkCount": 7,
+    "metaData": {
+        "tags": []
+    },
+    "storeReference": "6873f80e432d29bf054f78c4",
+    "projectReference": "6873f7f242ec168c188334ec",
+    "organisationReference": "5f08b3f6619dfb1779da18f9",
+    "createdBy": "65605bbcde1bccb4b9af6114",
+    "createdAt": 1749410046,
+    "lastChangedBy": "65605bbcde1bccb4b9af6114",
+    "lastChanged": 1752430611,
+    "chunks": [
+        {
+            "_id": "6873f80f432d29bf054f78d1",
+            "referenceId": "35dee3c1-02f6-4a4c-850f-e2fb42a2ac38",
+            "order": 0,
+            "text": "NovaSure Insurance’s AutoGuard Pro roadside assistance plan includes a Temporary Hotel Stay Reimbursement benefit. This provision supports customers who experience a qualifying vehicle breakdown more than 100km from their registered home and between the hours of 10:00 PM and 4:00 AM. The purpose is to ensure customer safety when travel cannot reasonably continue overnight.",
+            "disabled": false,
+            "data": {
+                "header": "Policy Overview"
+            },
+            "sourceReference": "6873f80f432d29bf054f78c7",
+            "storeReference": "6873f80e432d29bf054f78c4",
+            "projectReference": "6873f7f242ec168c188334ec",
+            "organisationReference": "5f08b3f6619dfb1779da18f9",
+            "createdBy": "65605bbcde1bccb4b9af6114",
+            "createdAt": 1749410058,
+            "lastChangedBy": "65605bbcde1bccb4b9af6114",
+            "lastChanged": 1752430607
+        },
+        {
+            "_id": "6873f80f432d29bf054f78d0",
+            "referenceId": "ceb2bc1f-2860-4eea-b98e-c8021982195f",
+            "order": 4,
+            "text": "To request reimbursement, policyholders must submit the following within 14 days of the incident:\n\nDescription of the breakdown (with time and location).\n\nOriginal hotel invoice with guest name and nightly rate.\n\nProof of distance (e.g., roadside assistance report or GPS data).\n\nIf the hotel was not booked through NovaSure’s partners, a short written explanation may be required.\n\nIn cases where the initial breakdown assistance was handled through NovaSure’s digital assistant Lina, customers may submit their reimbursement claim within 7 calendar days via Lina. No additional data expect for the invoice needed in that case, as Lina has already saved all information.",
+            "disabled": false,
+            "data": {
+                "header": "Required Documentation for Claims"
+            },
+            "sourceReference": "6873f80f432d29bf054f78c7",
+            "storeReference": "6873f80e432d29bf054f78c4",
+            "projectReference": "6873f7f242ec168c188334ec",
+            "organisationReference": "5f08b3f6619dfb1779da18f9",
+            "createdBy": "65605bbcde1bccb4b9af6114",
+            "createdAt": 1749410124,
+            "lastChangedBy": "65605bbcde1bccb4b9af6114",
+            "lastChanged": 1752430607
+        },
+        {
+            "_id": "6873f80f432d29bf054f78cf",
+            "referenceId": "8f196614-fada-4fe2-b1d1-76782f23593f",
+            "order": 6,
+            "text": "This hotel reimbursement benefit is exclusive to AutoGuard Pro policyholders. It is not available under AutoGuard Basic, Plus, or Standard tiers. Always refer to the latest policy booklet for updates, as terms are subject to change.\nThe policy includes coverage of up to 160€ per night.\nCosts of public transportation, taxi or ride-sharing services are included in the policy and can be reimbursed aswell.",
+            "disabled": false,
+            "data": {
+                "header": "Plan Tier and Applicability"
+            },
+            "sourceReference": "6873f80f432d29bf054f78c7",
+            "storeReference": "6873f80e432d29bf054f78c4",
+            "projectReference": "6873f7f242ec168c188334ec",
+            "organisationReference": "5f08b3f6619dfb1779da18f9",
+            "createdBy": "65605bbcde1bccb4b9af6114",
+            "createdAt": 1749410353,
+            "lastChangedBy": "65605bbcde1bccb4b9af6114",
+            "lastChanged": 1752430607
+        },
+        {
+            "_id": "6873f80f432d29bf054f78ce",
+            "referenceId": "9285fb57-6052-4f2e-8bef-9811c9da6491",
+            "order": 1,
+            "text": "Reimbursement eligibility requires the insured vehicle to be over 100 kilometers away from the policyholder’s primary residence at the time of immobilization. NovaSure verifies this using GPS data from service logs or through documentation like repair intake forms. The policyholder’s home address must be up to date in NovaSure’s system.",
+            "disabled": false,
+            "data": {
+                "header": "Distance Eligibility Criteria"
+            },
+            "sourceReference": "6873f80f432d29bf054f78c7",
+            "storeReference": "6873f80e432d29bf054f78c4",
+            "projectReference": "6873f7f242ec168c188334ec",
+            "organisationReference": "5f08b3f6619dfb1779da18f9",
+            "createdBy": "65605bbcde1bccb4b9af6114",
+            "createdAt": 1749410076,
+            "lastChangedBy": "65605bbcde1bccb4b9af6114",
+            "lastChanged": 1752430607
+        },
+        {
+            "_id": "6873f80f432d29bf054f78cd",
+            "referenceId": "6f9f3465-6474-43a9-b490-2af791734405",
+            "order": 5,
+            "text": "Reimbursement claims may be denied under the following conditions:\n\nPolicy activated less than 48 hours prior to the incident.\n\nIncident occurred within 100km of the policyholder’s home.\n\nEvidence of fraud, misuse, or non-emergency use of service.\n\nReasonable travel alternatives were available at the time.",
+            "disabled": false,
+            "data": {
+                "headers": "Exclusions and Denials"
+            },
+            "sourceReference": "6873f80f432d29bf054f78c7",
+            "storeReference": "6873f80e432d29bf054f78c4",
+            "projectReference": "6873f7f242ec168c188334ec",
+            "organisationReference": "5f08b3f6619dfb1779da18f9",
+            "createdBy": "65605bbcde1bccb4b9af6114",
+            "createdAt": 1749410280,
+            "lastChangedBy": "65605bbcde1bccb4b9af6114",
+            "lastChanged": 1752430607
+        },
+        {
+            "_id": "6873f80f432d29bf054f78cc",
+            "referenceId": "dbe2b20c-eebd-470d-a90d-8f539f8f33aa",
+            "order": 3,
+            "text": "NovaSure will reimburse up to €160.00 per night for hotel stays meeting all eligibility criteria. Only one night per incident is covered unless prior approval is granted. The hotel must be a licensed commercial establishment—private stays or short-term rentals like Airbnb are excluded. Meals, entertainment, parking, and additional charges are not covered.\nCosts of public transportation, taxi or ride-sharing services are included in the policy and can be reimbursed aswell.",
+            "disabled": false,
+            "data": {
+                "header": "Reimbursement Coverage Details"
+            },
+            "sourceReference": "6873f80f432d29bf054f78c7",
+            "storeReference": "6873f80e432d29bf054f78c4",
+            "projectReference": "6873f7f242ec168c188334ec",
+            "organisationReference": "5f08b3f6619dfb1779da18f9",
+            "createdBy": "65605bbcde1bccb4b9af6114",
+            "createdAt": 1749410107,
+            "lastChangedBy": "65605bbcde1bccb4b9af6114",
+            "lastChanged": 1752430607
+        },
+        {
+            "_id": "6873f80f432d29bf054f78cb",
+            "referenceId": "97dc0f95-cb0f-43dc-b577-08d6d12388d3",
+            "order": 2,
+            "text": "The hotel benefit only applies when the covered breakdown occurs between 10:00 PM and 4:00 AM local time. The time of the incident is based on the timestamp of the roadside assistance request, as recorded by NovaSure’s hotline or Nova Assist app.",
+            "disabled": false,
+            "data": {
+                "header": "Types of Qualifying Incidents"
+            },
+            "sourceReference": "6873f80f432d29bf054f78c7",
+            "storeReference": "6873f80e432d29bf054f78c4",
+            "projectReference": "6873f7f242ec168c188334ec",
+            "organisationReference": "5f08b3f6619dfb1779da18f9",
+            "createdBy": "65605bbcde1bccb4b9af6114",
+            "createdAt": 1749410091,
+            "lastChangedBy": "65605bbcde1bccb4b9af6114",
+            "lastChanged": 1752430607
+        }
+    ]
+}
