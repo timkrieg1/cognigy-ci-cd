@@ -1,0 +1,243 @@
+[
+    {
+        "node": "6873f80e432d29bf054f7736",
+        "children": [],
+        "next": "6873f80e432d29bf054f7737",
+        "_id": "6873f80e432d29bf054f7738",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7736",
+            "referenceId": "cb03a4fc-500e-4448-9e77-6e38206e8ed4",
+            "type": "start",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Start",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": true,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7739",
+        "children": [],
+        "next": null,
+        "_id": "6873f80e432d29bf054f773a",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7739",
+            "referenceId": "9d82723f-d1ea-4223-b8b5-aee196fab27f",
+            "type": "end",
+            "extension": "@cognigy/basic-nodes",
+            "label": "End",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7737",
+        "children": [],
+        "next": "6873f80e432d29bf054f773b",
+        "_id": "6873f80e432d29bf054f773c",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7737",
+            "referenceId": "94bd4138-0f23-45c1-9d9a-f8c99b661d8b",
+            "type": "code",
+            "extension": "@cognigy/basic-nodes",
+            "label": "READ ME",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "code": "/* \r\nFlow Purpose\r\n\r\nThis flow aims to clean the input it gets by removing all punctuation, whitespaces, converting to lowercase and using the cognigy cleaner functions.\r\n\r\nThe input that should be cleaned has to be stored in the context variable: cc.sessionInformation.cleanerFlow.inputText\r\nThe output will be stored in the context variable: cc.sessionInformation.cleanerFlow.outputText\r\n\r\n\r\n\r\n---------------------------------------\r\nCONNECTION TO OTHER FLOWS\r\n\r\nThis flow invokes the following flows:\r\nNone\r\n\r\n\r\nThis flow gets invoked by the following flows:\r\nAUTH_01_Contract\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n */",
+                "hasError": false,
+                "transpiled": ""
+            },
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f773b",
+        "children": [],
+        "next": "6873f80e432d29bf054f773d",
+        "_id": "6873f80e432d29bf054f773e",
+        "_data": {
+            "_id": "6873f80e432d29bf054f773b",
+            "referenceId": "f8a2b5a0-85a9-4914-a447-39d90147fe17",
+            "type": "code",
+            "extension": "@cognigy/basic-nodes",
+            "label": "C: Mock Context for debugging",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "code": "try {\r\n    //Check if the sessionInformation object already exists, if not the chat was started from this flow, which means we need to initialize it for debugging\r\n    if(_.isUndefined(cc.sessionInformation)) {\r\n        cc.sessionInformation = {\r\n\t\t\"caller\": \"+49176145265874\",\r\n\t\t\"callee\": \"+49123456789123\",\r\n        \"recordingConsent\": true,\r\n        \"contract\": {},\r\n        \"inputCleaner\": {\r\n            \"inputText\": \"AI - e r 125.47$! %,;<_-.:,;<>|`´+*~^ 584. 65. zwo\"\r\n            }\r\n\t    }\r\n\r\n        cc.constants = {\r\n            \"apiBaseUrl\": \"https://api-trial.cognigy.ai/new\",\r\n\t\t    \"handoverTransferTarget\": \"+49123456789\",\r\n            \"flowControllerPercentages\": {\r\n            },\r\n            \"contract\": {\r\n                \"contractPrefixes\": [\r\n                    \"KV\",\r\n                    \"SV\"\r\n                ]\r\n    \t    }\r\n        }\r\n    }\r\n\r\n} catch(error) {\r\n    api.log(\"error\", `[AUTH_00_Main; C: Mock Context for debugging] Error Message: ${error.toString()}`)\r\n\r\n}",
+                "hasError": false,
+                "transpiled": "try {\n    if (_.isUndefined(cc.sessionInformation)) {\n        cc.sessionInformation = {\n            \"caller\": \"+49176145265874\",\n            \"callee\": \"+49123456789123\",\n            \"recordingConsent\": true,\n            \"contract\": {},\n            \"inputCleaner\": {\n                \"inputText\": \"AI - e r 125.47$! %,;<_-.:,;<>|`´+*~^ 584. 65. zwo\"\n            }\n        };\n        cc.constants = {\n            \"apiBaseUrl\": \"https://api-trial.cognigy.ai/new\",\n            \"handoverTransferTarget\": \"+49123456789\",\n            \"flowControllerPercentages\": {},\n            \"contract\": {\n                \"contractPrefixes\": [\n                    \"KV\",\n                    \"SV\"\n                ]\n            }\n        };\n    }\n}\ncatch (error) {\n    api.log(\"error\", `[AUTH_00_Main; C: Mock Context for debugging] Error Message: ${error.toString()}`);\n}\n"
+            },
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f773f",
+        "children": [],
+        "next": "6873f80e432d29bf054f7739",
+        "_id": "6873f80e432d29bf054f7740",
+        "_data": {
+            "_id": "6873f80e432d29bf054f773f",
+            "referenceId": "19d0f0d3-9015-418a-a98a-d877500b278d",
+            "type": "code",
+            "extension": "@cognigy/basic-nodes",
+            "label": "C: Remove Whitespaces",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "code": "//Remove all whitespaces\r\n\r\ntry {\r\n    cc.sessionInformation.inputCleaner.outputText = cc.sessionInformation.inputCleaner.outputText.replace(/\\s+/g, \"\")\r\n} catch(error) {\r\n    api.log(\"error\", `[BF_02_Clean Input; C: C: Remove Whitespaces] Error Message: ${error.toString()}`)\r\n\r\n}",
+                "hasError": false,
+                "transpiled": "try {\n    cc.sessionInformation.inputCleaner.outputText = cc.sessionInformation.inputCleaner.outputText.replace(/\\s+/g, \"\");\n}\ncatch (error) {\n    api.log(\"error\", `[BF_02_Clean Input; C: C: Remove Whitespaces] Error Message: ${error.toString()}`);\n}\n"
+            },
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f773d",
+        "children": [
+            "6873f80e432d29bf054f7741",
+            "6873f80e432d29bf054f7742"
+        ],
+        "next": "6873f80e432d29bf054f773f",
+        "_id": "6873f80e432d29bf054f7743",
+        "_data": {
+            "_id": "6873f80e432d29bf054f773d",
+            "referenceId": "f3b6d5e6-a5eb-446d-9769-c557cb1d47f8",
+            "type": "if",
+            "extension": "@cognigy/basic-nodes",
+            "label": "If string is not empty",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "condition": {
+                    "type": "condition",
+                    "rule": {
+                        "left": "1",
+                        "operand": "eq",
+                        "right": "1"
+                    },
+                    "condition": "{{cc.sessionInformation.inputCleaner.inputText != null}}"
+                }
+            },
+            "preview": {
+                "type": "condition",
+                "rule": {
+                    "left": "1",
+                    "operand": "eq",
+                    "right": "1"
+                },
+                "condition": "{{cc.sessionInformation.inputCleaner.inputText != null}}"
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7741",
+        "children": [],
+        "next": "6873f80e432d29bf054f7744",
+        "_id": "6873f80e432d29bf054f7745",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7741",
+            "referenceId": "1b93cc26-dba0-41bd-88b0-7a6b6bdc40ec",
+            "type": "then",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Then",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7742",
+        "children": [],
+        "next": null,
+        "_id": "6873f80e432d29bf054f7746",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7742",
+            "referenceId": "fc979b67-3b00-46d4-9d75-7636b254ddf7",
+            "type": "else",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Else",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7744",
+        "children": [],
+        "next": null,
+        "_id": "6873f80e432d29bf054f7747",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7744",
+            "referenceId": "9c3ef5af-ec7f-45fa-9ac6-33c61d1442cf",
+            "type": "cleanText",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Clean Text",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "textToClean": "{{cc.sessionInformation.inputCleaner.inputText}}",
+                "cleanTextLocale": "infer",
+                "cleanDisallowedSymbols": false,
+                "additionalAllowedCharacters": [],
+                "additionalMappedSymbols": "",
+                "resolveSpelledOutNumbers": true,
+                "resolvePhoneticAlphabet": true,
+                "additionalPhoneticAlphabet": "{}",
+                "replaceSpecialWords": false,
+                "additionalSpecialPhrases": "",
+                "resolveSpelledOutAlphabet": true,
+                "resolvePhoneticCounters": true,
+                "contractSingleCharacters": true,
+                "contractNumberGroups": true,
+                "trimResult": true,
+                "storeLocation": "context",
+                "inputKey": "cleanedText",
+                "contextKeyToStoreResult": "sessionInformation.inputCleaner.outputText"
+            },
+            "preview": "{{cc.sessionInformation.inputCleaner.inputText}}",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    }
+]

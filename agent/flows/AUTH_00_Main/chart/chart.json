@@ -1,0 +1,126 @@
+[
+    {
+        "node": "6873f80e432d29bf054f775a",
+        "children": [],
+        "next": "6873f80e432d29bf054f775b",
+        "_id": "6873f80e432d29bf054f775c",
+        "_data": {
+            "_id": "6873f80e432d29bf054f775a",
+            "referenceId": "d299a6b7-1665-427d-8676-b378c73645df",
+            "type": "start",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Start",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": true,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f775d",
+        "children": [],
+        "next": null,
+        "_id": "6873f80e432d29bf054f775e",
+        "_data": {
+            "_id": "6873f80e432d29bf054f775d",
+            "referenceId": "0e05f9bb-0046-40ba-a6f9-a09db4d4e0e1",
+            "type": "end",
+            "extension": "@cognigy/basic-nodes",
+            "label": "End",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f775b",
+        "children": [],
+        "next": "6873f80e432d29bf054f775f",
+        "_id": "6873f80e432d29bf054f7760",
+        "_data": {
+            "_id": "6873f80e432d29bf054f775b",
+            "referenceId": "8e862535-0044-40bb-906c-0b7f82dcb0b2",
+            "type": "code",
+            "extension": "@cognigy/basic-nodes",
+            "label": "READ ME",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "code": "/* \r\nFlow Purpose\r\n\r\nThis flow is the main flow of the Authentication use case. All authentication flows are invoked from here. The output of this flow is a authentication result that uniquely identifies the caller as authenticated or not authenticated.\r\n\r\n\r\n\r\n---------------------------------------\r\nCONNECTION TO OTHER FLOWS\r\n\r\nThis flow invokes the following flows:\r\nAUTH_01_Contract\r\n\r\n\r\nThis flow gets invoked by the following flows:\r\n00_Main\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n */",
+                "hasError": false,
+                "transpiled": ""
+            },
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f775f",
+        "children": [],
+        "next": "6873f80e432d29bf054f7761",
+        "_id": "6873f80e432d29bf054f7762",
+        "_data": {
+            "_id": "6873f80e432d29bf054f775f",
+            "referenceId": "085017a1-1dfd-49a7-b9f9-e160121f756a",
+            "type": "code",
+            "extension": "@cognigy/basic-nodes",
+            "label": "C: Mock Context for debugging",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "code": "try {\r\n    //Check if the sessionInformation object already exists, if not the chat was started from this flow, which means we need to initialize it for debugging\r\n    if(_.isUndefined(cc.sessionInformation)) {\r\n        cc.sessionInformation = {\r\n\t\t\"caller\": \"+49176145265874\",\r\n\t\t\"callee\": \"+49123456789123\",\r\n        \"recordingConsent\": true\r\n\t    }\r\n\r\n        cc.constants = {\r\n            \"apiBaseUrl\": \"https://api-trial.cognigy.ai/new\",\r\n\t\t    \"handoverTransferTarget\": \"+49123456789\",\r\n            \"flowControllerPercentages\": {\r\n            },\r\n            \"contract\": {\r\n                \"contractPrefixes\": [\r\n                    \"KV\",\r\n                    \"SV\"\r\n                ]\r\n    \t    }\r\n        }\r\n    }\r\n\r\n} catch(error) {\r\n    api.log(\"error\", `[AUTH_00_Main; C: Mock Context for debugging] Error Message: ${error.toString()}`)\r\n\r\n}",
+                "hasError": false,
+                "transpiled": "try {\n    if (_.isUndefined(cc.sessionInformation)) {\n        cc.sessionInformation = {\n            \"caller\": \"+49176145265874\",\n            \"callee\": \"+49123456789123\",\n            \"recordingConsent\": true\n        };\n        cc.constants = {\n            \"apiBaseUrl\": \"https://api-trial.cognigy.ai/new\",\n            \"handoverTransferTarget\": \"+49123456789\",\n            \"flowControllerPercentages\": {},\n            \"contract\": {\n                \"contractPrefixes\": [\n                    \"KV\",\n                    \"SV\"\n                ]\n            }\n        };\n    }\n}\ncatch (error) {\n    api.log(\"error\", `[AUTH_00_Main; C: Mock Context for debugging] Error Message: ${error.toString()}`);\n}\n"
+            },
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7761",
+        "children": [],
+        "next": "6873f80e432d29bf054f775d",
+        "_id": "6873f80e432d29bf054f7763",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7761",
+            "referenceId": "0195bcc9-76c8-4b40-9959-e467c98c805c",
+            "type": "executeFlow",
+            "extension": "@cognigy/basic-nodes",
+            "label": "EX: AUTH_01_Contract",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "flowNode": {
+                    "flow": "12790b78-9560-4894-a776-1a70d1156bfa",
+                    "node": "3b50019a-74b1-4619-9e2d-482125a32138"
+                },
+                "parseIntents": true,
+                "parseKeyphrases": true,
+                "absorbContext": ""
+            },
+            "preview": {
+                "flow": "12790b78-9560-4894-a776-1a70d1156bfa",
+                "node": "3b50019a-74b1-4619-9e2d-482125a32138"
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    }
+]
