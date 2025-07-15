@@ -1,0 +1,1097 @@
+[
+    {
+        "node": "6873f80e432d29bf054f77e2",
+        "children": [],
+        "next": "6873f80e432d29bf054f77e3",
+        "_id": "6873f80e432d29bf054f77e4",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77e2",
+            "referenceId": "8ceea633-18fc-4d5e-90c9-7b126db90397",
+            "type": "start",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Start",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": true,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77e5",
+        "children": [],
+        "next": null,
+        "_id": "6873f80e432d29bf054f77e6",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77e5",
+            "referenceId": "ddf8e3e0-cf8d-4b37-a91b-9e7397d8b9f1",
+            "type": "end",
+            "extension": "@cognigy/basic-nodes",
+            "label": "End",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77e7",
+        "children": [
+            "6873f80e432d29bf054f77e8",
+            "6873f80e432d29bf054f77e9",
+            "6873f80e432d29bf054f77ea"
+        ],
+        "next": "6873f80e432d29bf054f77eb",
+        "_id": "6873f80e432d29bf054f77ec",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77e7",
+            "referenceId": "178534dc-82da-4b81-82bf-d7ffd56b1fa7",
+            "type": "switch",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Lookup",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "switch": {
+                    "type": "intent",
+                    "operator": "ci.intent"
+                },
+                "intentLevel": "input.intent",
+                "useStrict": ""
+            },
+            "preview": "ci.intent",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77e8",
+        "children": [],
+        "next": null,
+        "_id": "6873f80e432d29bf054f77ed",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77e8",
+            "referenceId": "2edc2bd0-a129-4eab-8a55-600060b8bee6",
+            "type": "default",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Default",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77e9",
+        "children": [],
+        "next": "6873f80e432d29bf054f77ee",
+        "_id": "6873f80e432d29bf054f77ef",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77e9",
+            "referenceId": "e0b3b087-1c85-499e-96e1-5dd933918a17",
+            "type": "case",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Contract_NeedMoreTime",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "case": {
+                    "value": "Contract_NeedMoreTime"
+                }
+            },
+            "preview": "Contract_NeedMoreTime",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77ea",
+        "children": [],
+        "next": "6873f80e432d29bf054f77f0",
+        "_id": "6873f80e432d29bf054f77f1",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77ea",
+            "referenceId": "c70c219b-fe14-4f81-8901-00b6c11a5b9a",
+            "type": "case",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Contract_CantFindContractNumber",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "case": {
+                    "value": "Contract_CantFindContractNumber"
+                }
+            },
+            "preview": "Contract_CantFindContractNumber",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77ee",
+        "children": [],
+        "next": null,
+        "_id": "6873f80e432d29bf054f77f2",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77ee",
+            "referenceId": "e1ed4b4c-b6ee-4875-943d-21de850c86b2",
+            "type": "say",
+            "extension": "@cognigy/basic-nodes",
+            "label": "S: Confirm wait",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "say": {
+                    "data": "",
+                    "linear": false,
+                    "loop": false,
+                    "text": [
+                        "Kein Problem, ich warte, bis Sie ihre Nummer gefunden haben."
+                    ],
+                    "type": "text",
+                    "_cognigy": {},
+                    "_data": {
+                        "_cognigy": {}
+                    }
+                },
+                "handoverOutput": "userAndAgent",
+                "generativeAI_rephraseOutputMode": "none",
+                "generativeAI_amountOfLastUserInputs": 5,
+                "generativeAI_customInputs": "",
+                "generativeAI_temperature": 0.7
+            },
+            "preview": {
+                "data": "",
+                "linear": false,
+                "loop": false,
+                "text": [
+                    "Kein Problem, ich warte, bis Sie ihre Nummer gefunden haben."
+                ],
+                "type": "text",
+                "_cognigy": {},
+                "_data": {
+                    "_cognigy": {}
+                }
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77f0",
+        "children": [],
+        "next": null,
+        "_id": "6873f80e432d29bf054f77f3",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77f0",
+            "referenceId": "302d5194-506a-4061-ad23-781fd7f1f0db",
+            "type": "say",
+            "extension": "@cognigy/basic-nodes",
+            "label": "S: More information",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "say": {
+                    "data": "",
+                    "linear": false,
+                    "loop": false,
+                    "text": [
+                        "Ihre Versicherungsnummer finden Sie auf ihrem letzen Schreiben. Die Versicherungsnummer besteht aus 2 bis 4 Buchstaben, gefolgt von 4 bis 9 Ziffern."
+                    ],
+                    "type": "text",
+                    "_cognigy": {},
+                    "_data": {
+                        "_cognigy": {}
+                    }
+                },
+                "handoverOutput": "userAndAgent",
+                "generativeAI_rephraseOutputMode": "none",
+                "generativeAI_amountOfLastUserInputs": 5,
+                "generativeAI_customInputs": "",
+                "generativeAI_temperature": 0.7
+            },
+            "preview": {
+                "data": "",
+                "linear": false,
+                "loop": false,
+                "text": [
+                    "Ihre Versicherungsnummer finden Sie auf ihrem letzen Schreiben. Die Versicherungsnummer besteht aus 2 bis 4 Buchstaben, gefolgt von 4 bis 9 Ziffern."
+                ],
+                "type": "text",
+                "_cognigy": {},
+                "_data": {
+                    "_cognigy": {}
+                }
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77f4",
+        "children": [],
+        "next": "6873f80e432d29bf054f77f5",
+        "_id": "6873f80e432d29bf054f77f6",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77f4",
+            "referenceId": "396887fd-ff8e-493c-b1ec-aa3955be3c5f",
+            "type": "wait",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Wait for Input",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77eb",
+        "children": [],
+        "next": "6873f80e432d29bf054f77f7",
+        "_id": "6873f80e432d29bf054f77f8",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77eb",
+            "referenceId": "e2fa5581-697e-4c37-91b2-5cf105bdc8bf",
+            "type": "addToContext",
+            "extension": "@cognigy/basic-nodes",
+            "label": "AC: userTimeout - 30s",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "key": "sessionInformation.setSessionConfigs.userTimeout",
+                "value": "30000",
+                "mode": "simple"
+            },
+            "preview": "sessionInformation.setSessionConfigs.userTimeout",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77f9",
+        "children": [
+            "6873f80e432d29bf054f77fa",
+            "6873f80e432d29bf054f77fb"
+        ],
+        "next": "6873f80e432d29bf054f77e5",
+        "_id": "6873f80e432d29bf054f77fc",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77f9",
+            "referenceId": "1c128d56-2c04-4031-aa9d-f192a84fd22b",
+            "type": "if",
+            "extension": "@cognigy/basic-nodes",
+            "label": "User gave no input or said No?",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "condition": {
+                    "type": "condition",
+                    "rule": {
+                        "left": "1",
+                        "operand": "eq",
+                        "right": "1"
+                    },
+                    "condition": "{{ci.type== \"nAnswer\"}}"
+                }
+            },
+            "preview": {
+                "type": "condition",
+                "rule": {
+                    "left": "1",
+                    "operand": "eq",
+                    "right": "1"
+                },
+                "condition": "{{ci.type== \"nAnswer\"}}"
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77fa",
+        "children": [],
+        "next": "6873f80e432d29bf054f77fd",
+        "_id": "6873f80e432d29bf054f77fe",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77fa",
+            "referenceId": "25e6e1fc-66d5-45e5-874e-7cddb2d532d2",
+            "type": "then",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Then",
+            "comment": "Entrypoint for Handing over the call to a human agent. Either because the user said he cant find his number, or if he stayed silent after the bot asked him if he found his number",
+            "commentColor": "#ffff8d",
+            "analyticsLabel": null,
+            "isEntryPoint": true,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77fb",
+        "children": [],
+        "next": "6873f80e432d29bf054f77ff",
+        "_id": "6873f80e432d29bf054f7800",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77fb",
+            "referenceId": "f74115e2-d3e5-48a3-abad-f4723d9f512e",
+            "type": "else",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Else",
+            "comment": "User said either yes or said some text that was not a dis-confirmation",
+            "commentColor": "#ffff8d",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77f7",
+        "children": [],
+        "next": "6873f80e432d29bf054f77f4",
+        "_id": "6873f80e432d29bf054f7801",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77f7",
+            "referenceId": "4b25e107-7ac8-4bcb-89be-c8c01bb81768",
+            "type": "executeFlow",
+            "extension": "@cognigy/basic-nodes",
+            "label": "EX: BF_03_Set Session Config",
+            "comment": "Increase the no user input timeout to 30s, which equates to 30s wait time for the bot",
+            "commentColor": "#ffff8d",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "flowNode": {
+                    "flow": "5aa76250-484b-4fa9-8a2d-13f9e1700b32",
+                    "node": "a4d6a046-b456-472a-8162-6ee8b8a038c8"
+                },
+                "parseIntents": false,
+                "parseKeyphrases": false,
+                "absorbContext": ""
+            },
+            "preview": {
+                "flow": "5aa76250-484b-4fa9-8a2d-13f9e1700b32",
+                "node": "a4d6a046-b456-472a-8162-6ee8b8a038c8"
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7802",
+        "children": [],
+        "next": "6873f80e432d29bf054f77e7",
+        "_id": "6873f80e432d29bf054f7803",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7802",
+            "referenceId": "43498be1-1b02-44a9-b3d8-b0662ba584cc",
+            "type": "addToContext",
+            "extension": "@cognigy/basic-nodes",
+            "label": "AC: attachedFlowExecuted",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "key": "sessionInformation.contract.attachedFlowExecuted",
+                "value": "true",
+                "mode": "simple"
+            },
+            "preview": "sessionInformation.contract.attachedFlowExecuted",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77e3",
+        "children": [],
+        "next": "6873f80e432d29bf054f7802",
+        "_id": "6873f80e432d29bf054f7804",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77e3",
+            "referenceId": "e83161ce-9d3a-4569-8261-d5be3cf01b7c",
+            "type": "code",
+            "extension": "@cognigy/basic-nodes",
+            "label": "C: Mock Context for debugging",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "code": "try {\r\n    //Check if the sessionInformation object already exists, if not the chat was started from this flow, which means we need to initialize it for debugging\r\n    if(_.isUndefined(cc.sessionInformation)) {\r\n        cc.sessionInformation = {\r\n            \"caller\": \"+49176145265874\",\r\n            \"callee\": \"+49123456789123\",\r\n            \"recordingConsent\": true,\r\n            \"contract\": {}\r\n        }\r\n\r\n        cc.constants = {\r\n            \"apiBaseUrl\": \"https://api-trial.cognigy.ai/new\",\r\n\t\t    \"handoverTransferTarget\": \"+49123456789\",\r\n            \"flowControllerPercentages\": {\r\n            },\r\n            \"contract\": {\r\n                \"contractPrefixes\": [\r\n                    \"KV\",\r\n                    \"SV\"\r\n                ]\r\n    \t    }\r\n        }\r\n    }\r\n\r\n} catch(error) {\r\n    api.log(\"error\", `[AUTH_00_Main; C: Mock Context for debugging] Error Message: ${error.toString()}`)\r\n\r\n}",
+                "hasError": false,
+                "transpiled": "try {\n    if (_.isUndefined(cc.sessionInformation)) {\n        cc.sessionInformation = {\n            \"caller\": \"+49176145265874\",\n            \"callee\": \"+49123456789123\",\n            \"recordingConsent\": true,\n            \"contract\": {}\n        };\n        cc.constants = {\n            \"apiBaseUrl\": \"https://api-trial.cognigy.ai/new\",\n            \"handoverTransferTarget\": \"+49123456789\",\n            \"flowControllerPercentages\": {},\n            \"contract\": {\n                \"contractPrefixes\": [\n                    \"KV\",\n                    \"SV\"\n                ]\n            }\n        };\n    }\n}\ncatch (error) {\n    api.log(\"error\", `[AUTH_00_Main; C: Mock Context for debugging] Error Message: ${error.toString()}`);\n}\n"
+            },
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7805",
+        "children": [],
+        "next": null,
+        "_id": "6873f80e432d29bf054f7806",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7805",
+            "referenceId": "ed8df76e-bf64-4054-b0f2-3469d2f0285e",
+            "type": "then",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Then",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7807",
+        "children": [],
+        "next": "6873f80e432d29bf054f7808",
+        "_id": "6873f80e432d29bf054f7809",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7807",
+            "referenceId": "d711340d-fc3c-4b7e-bdf7-559afaba12b2",
+            "type": "else",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Else",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7808",
+        "children": [],
+        "next": "6873f80e432d29bf054f780a",
+        "_id": "6873f80e432d29bf054f780b",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7808",
+            "referenceId": "b71bf2c0-eac9-47a7-93c3-fd8df6330516",
+            "type": "say",
+            "extension": "@cognigy/basic-nodes",
+            "label": "S: Prompt Contract Number",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "say": {
+                    "data": "",
+                    "linear": false,
+                    "loop": false,
+                    "text": [
+                        "Alles klar, dann nennen Sie mir bitte Ihre Versicherungsnummer?"
+                    ],
+                    "type": "text",
+                    "_cognigy": {},
+                    "_data": {
+                        "_cognigy": {}
+                    }
+                },
+                "handoverOutput": "userAndAgent",
+                "generativeAI_rephraseOutputMode": "none",
+                "generativeAI_amountOfLastUserInputs": 5,
+                "generativeAI_customInputs": "",
+                "generativeAI_temperature": 0.7
+            },
+            "preview": {
+                "data": "",
+                "linear": false,
+                "loop": false,
+                "text": [
+                    "Alles klar, dann nennen Sie mir bitte Ihre Versicherungsnummer?"
+                ],
+                "type": "text",
+                "_cognigy": {},
+                "_data": {
+                    "_cognigy": {}
+                }
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f780a",
+        "children": [],
+        "next": null,
+        "_id": "6873f80e432d29bf054f780c",
+        "_data": {
+            "_id": "6873f80e432d29bf054f780a",
+            "referenceId": "5c6984f9-8bd7-4bfe-86f0-5e50300a1e97",
+            "type": "wait",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Wait for Input",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f780d",
+        "children": [],
+        "next": "6873f80e432d29bf054f780e",
+        "_id": "6873f80e432d29bf054f780f",
+        "_data": {
+            "_id": "6873f80e432d29bf054f780d",
+            "referenceId": "4a89db05-4223-45a0-a4f7-47d9f32ba436",
+            "type": "then",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Then",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7810",
+        "children": [],
+        "next": null,
+        "_id": "6873f80e432d29bf054f7811",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7810",
+            "referenceId": "e83adc9b-b46e-4d4c-a07a-7e58fc269cc8",
+            "type": "else",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Else",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f780e",
+        "children": [],
+        "next": "6873f80e432d29bf054f7812",
+        "_id": "6873f80e432d29bf054f7813",
+        "_data": {
+            "_id": "6873f80e432d29bf054f780e",
+            "referenceId": "5a20f73f-ada5-4d59-b9a1-2ae60bf08e6a",
+            "type": "say",
+            "extension": "@cognigy/basic-nodes",
+            "label": "S: Found Contract Number?",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "say": {
+                    "data": "",
+                    "linear": false,
+                    "loop": false,
+                    "text": [
+                        "Haben Sie Ihre Versicherungsnummer gefunden?"
+                    ],
+                    "type": "text",
+                    "_cognigy": {},
+                    "_data": {
+                        "_cognigy": {}
+                    }
+                },
+                "handoverOutput": "userAndAgent",
+                "generativeAI_rephraseOutputMode": "none",
+                "generativeAI_amountOfLastUserInputs": 5,
+                "generativeAI_customInputs": "",
+                "generativeAI_temperature": 0.7
+            },
+            "preview": {
+                "data": "",
+                "linear": false,
+                "loop": false,
+                "text": [
+                    "Haben Sie Ihre Versicherungsnummer gefunden?"
+                ],
+                "type": "text",
+                "_cognigy": {},
+                "_data": {
+                    "_cognigy": {}
+                }
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7812",
+        "children": [],
+        "next": "6873f80e432d29bf054f7814",
+        "_id": "6873f80e432d29bf054f7815",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7812",
+            "referenceId": "f7570008-41fb-499d-b04b-1d4a280c8886",
+            "type": "wait",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Wait for Input",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7816",
+        "children": [],
+        "next": "6873f80e432d29bf054f7817",
+        "_id": "6873f80e432d29bf054f7818",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7816",
+            "referenceId": "f7f2d6f5-5ef9-40a3-8255-238dad13b2dc",
+            "type": "executeFlow",
+            "extension": "@cognigy/basic-nodes",
+            "label": "EX: BF_02_Clean Input",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "flowNode": {
+                    "flow": "57395a29-181d-48bd-bb4b-9cf2c04d8698",
+                    "node": "cb03a4fc-500e-4448-9e77-6e38206e8ed4"
+                },
+                "parseIntents": false,
+                "parseKeyphrases": false,
+                "absorbContext": ""
+            },
+            "preview": {
+                "flow": "57395a29-181d-48bd-bb4b-9cf2c04d8698",
+                "node": "cb03a4fc-500e-4448-9e77-6e38206e8ed4"
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7817",
+        "children": [],
+        "next": "6873f80e432d29bf054f7819",
+        "_id": "6873f80e432d29bf054f781a",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7817",
+            "referenceId": "14493794-2a9c-45cb-b235-26564f435525",
+            "type": "code",
+            "extension": "@cognigy/basic-nodes",
+            "label": "C: Search for number in input",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "code": "//This code node tests if more than 3 numbers were mentioned in the cleaned input text. If so the flow will continue with testing the full regex. If not the user will hear a prompt to speak in his contract number\r\n\r\ntry {\r\n    const regex = new RegExp(\"\\\\d.*\\\\d.*\\\\d.*\")\r\n    const match = cc.sessionInformation.inputCleaner.outputText.match(regex) || []\r\n    \r\n    if(match.length >= 1) {\r\n        cc.sessionInformation.contract.attachedFlowContractNumber = true\r\n    }\r\n} catch(error) {\r\n    api.log(\"error\", `[AUTH_01_2_Wait for Input; C: Search for number in input] Error Message: ${error.toString()}`)\r\n\r\n}",
+                "hasError": false,
+                "transpiled": "try {\n    const regex = new RegExp(\"\\\\d.*\\\\d.*\\\\d.*\");\n    const match = cc.sessionInformation.inputCleaner.outputText.match(regex) || [];\n    if (match.length >= 1) {\n        cc.sessionInformation.contract.attachedFlowContractNumber = true;\n    }\n}\ncatch (error) {\n    api.log(\"error\", `[AUTH_01_2_Wait for Input; C: Search for number in input] Error Message: ${error.toString()}`);\n}\n"
+            },
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7819",
+        "children": [
+            "6873f80e432d29bf054f7805",
+            "6873f80e432d29bf054f7807"
+        ],
+        "next": null,
+        "_id": "6873f80e432d29bf054f781b",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7819",
+            "referenceId": "79914671-38e2-4318-9cdc-09b762d540d9",
+            "type": "if",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Three or more numbers mentioned?",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "condition": {
+                    "type": "condition",
+                    "rule": {
+                        "left": "1",
+                        "operand": "eq",
+                        "right": "1"
+                    },
+                    "condition": "{{cc.sessionInformation.contract.attachedFlowContractNumber}}"
+                }
+            },
+            "preview": {
+                "type": "condition",
+                "rule": {
+                    "left": "1",
+                    "operand": "eq",
+                    "right": "1"
+                },
+                "condition": "{{cc.sessionInformation.contract.attachedFlowContractNumber}}"
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77fd",
+        "children": [],
+        "next": "6873f80e432d29bf054f781c",
+        "_id": "6873f80e432d29bf054f781d",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77fd",
+            "referenceId": "63a46df2-1691-440e-806a-38416c59883f",
+            "type": "say",
+            "extension": "@cognigy/basic-nodes",
+            "label": "S: No Problem",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "say": {
+                    "data": "",
+                    "linear": false,
+                    "loop": false,
+                    "text": [
+                        "Kein Problem!"
+                    ],
+                    "type": "text",
+                    "_cognigy": {},
+                    "_data": {
+                        "_cognigy": {}
+                    }
+                },
+                "handoverOutput": "userAndAgent",
+                "generativeAI_rephraseOutputMode": "none",
+                "generativeAI_amountOfLastUserInputs": 5,
+                "generativeAI_customInputs": "",
+                "generativeAI_temperature": 0.7
+            },
+            "preview": {
+                "data": "",
+                "linear": false,
+                "loop": false,
+                "text": [
+                    "Kein Problem!"
+                ],
+                "type": "text",
+                "_cognigy": {},
+                "_data": {
+                    "_cognigy": {}
+                }
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f781c",
+        "children": [],
+        "next": null,
+        "_id": "6873f80e432d29bf054f781e",
+        "_data": {
+            "_id": "6873f80e432d29bf054f781c",
+            "referenceId": "4da42f2d-3970-47bb-9bd0-373092749a53",
+            "type": "goTo",
+            "extension": "@cognigy/basic-nodes",
+            "label": "G2: BF_05_Handover",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "flowNode": {
+                    "flow": "5695db90-1987-429a-bd29-0dc89c2cd9f3",
+                    "node": "2eb483bf-d9ef-47e7-8740-4d8972b6f17b"
+                },
+                "absorbContext": false,
+                "executionMode": "continue",
+                "injectedText": "",
+                "injectedData": "{}",
+                "parseIntents": false,
+                "parseKeyphrases": false
+            },
+            "preview": {
+                "flow": "5695db90-1987-429a-bd29-0dc89c2cd9f3",
+                "node": "2eb483bf-d9ef-47e7-8740-4d8972b6f17b"
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77ff",
+        "children": [
+            "6873f80e432d29bf054f780d",
+            "6873f80e432d29bf054f7810"
+        ],
+        "next": "6873f80e432d29bf054f781f",
+        "_id": "6873f80e432d29bf054f7820",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77ff",
+            "referenceId": "ad96b7d7-0221-413d-971f-1eb5ef0695c7",
+            "type": "if",
+            "extension": "@cognigy/basic-nodes",
+            "label": "User was silent?",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "condition": {
+                    "type": "condition",
+                    "rule": {
+                        "left": "1",
+                        "operand": "eq",
+                        "right": "1"
+                    },
+                    "condition": "{{!ci.text}}"
+                }
+            },
+            "preview": {
+                "type": "condition",
+                "rule": {
+                    "left": "1",
+                    "operand": "eq",
+                    "right": "1"
+                },
+                "condition": "{{!ci.text}}"
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7814",
+        "children": [
+            "6873f80e432d29bf054f7821",
+            "6873f80e432d29bf054f7822"
+        ],
+        "next": null,
+        "_id": "6873f80e432d29bf054f7823",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7814",
+            "referenceId": "01a34fff-f98c-4c63-a546-073c96a70d08",
+            "type": "if",
+            "extension": "@cognigy/basic-nodes",
+            "label": "User said no or silent?",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "condition": {
+                    "type": "condition",
+                    "rule": {
+                        "left": "1",
+                        "operand": "eq",
+                        "right": "1"
+                    },
+                    "condition": "{{ci.type == \"nAnswer\" || !ci.text}}"
+                }
+            },
+            "preview": {
+                "type": "condition",
+                "rule": {
+                    "left": "1",
+                    "operand": "eq",
+                    "right": "1"
+                },
+                "condition": "{{ci.type == \"nAnswer\" || !ci.text}}"
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7821",
+        "children": [],
+        "next": "6873f80e432d29bf054f7824",
+        "_id": "6873f80e432d29bf054f7825",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7821",
+            "referenceId": "c8ea377d-9d20-4757-b9ca-7dc9e01f6fbc",
+            "type": "then",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Then",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7822",
+        "children": [],
+        "next": null,
+        "_id": "6873f80e432d29bf054f7826",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7822",
+            "referenceId": "0a224038-3858-4348-b0a2-c04b5819787d",
+            "type": "else",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Else",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f781f",
+        "children": [],
+        "next": "6873f80e432d29bf054f7816",
+        "_id": "6873f80e432d29bf054f7827",
+        "_data": {
+            "_id": "6873f80e432d29bf054f781f",
+            "referenceId": "1799d55a-1c4c-448e-b2a0-81701692d6b0",
+            "type": "addToContext",
+            "extension": "@cognigy/basic-nodes",
+            "label": "AC: inputText",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "key": "sessionInformation.inputCleaner.inputText",
+                "value": "{{ci.text}}",
+                "mode": "simple"
+            },
+            "preview": "sessionInformation.inputCleaner.inputText",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7824",
+        "children": [],
+        "next": null,
+        "_id": "6873f80e432d29bf054f7828",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7824",
+            "referenceId": "3200c7f3-ee03-4d2a-998f-2137c9280bab",
+            "type": "goTo",
+            "extension": "@cognigy/basic-nodes",
+            "label": "G2: AUTH_01_2_Wait for Input",
+            "comment": "To avoid code duplication use the Then branche of the main if node",
+            "commentColor": "#ffff8d",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "flowNode": {
+                    "flow": "7f60e40c-d644-48af-a6d8-764815d425a8",
+                    "node": "25e6e1fc-66d5-45e5-874e-7cddb2d532d2"
+                },
+                "absorbContext": false,
+                "executionMode": "continue",
+                "injectedText": "",
+                "injectedData": "{}",
+                "parseIntents": false,
+                "parseKeyphrases": false
+            },
+            "preview": {
+                "flow": "7f60e40c-d644-48af-a6d8-764815d425a8",
+                "node": "25e6e1fc-66d5-45e5-874e-7cddb2d532d2"
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f77f5",
+        "children": [],
+        "next": "6873f80e432d29bf054f77f9",
+        "_id": "6873f80e432d29bf054f7829",
+        "_data": {
+            "_id": "6873f80e432d29bf054f77f5",
+            "referenceId": "b9494c27-a464-4314-b666-38e234dae7e5",
+            "type": "executeFlow",
+            "extension": "@cognigy/basic-nodes",
+            "label": "EX: BF_03_Set Session Config",
+            "comment": "Reset the session configs to their default value",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "flowNode": {
+                    "flow": "5aa76250-484b-4fa9-8a2d-13f9e1700b32",
+                    "node": "a4d6a046-b456-472a-8162-6ee8b8a038c8"
+                },
+                "parseIntents": false,
+                "parseKeyphrases": false,
+                "absorbContext": ""
+            },
+            "preview": {
+                "flow": "5aa76250-484b-4fa9-8a2d-13f9e1700b32",
+                "node": "a4d6a046-b456-472a-8162-6ee8b8a038c8"
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    }
+]

@@ -1,0 +1,16 @@
+{
+    "_id": "6873f80e432d29bf054f78b8",
+    "referenceId": "67ba57fc-733e-429d-8669-cb45ca9241cd",
+    "name": "Cogngiy OpenAPI X-API-Key",
+    "fields": {
+        "authApiKey": "****************"
+    },
+    "extension": "@cognigy/basic-nodes",
+    "type": "http_apiKeyXKey",
+    "resourceLevel": "project",
+    "createdAt": 1734104201,
+    "lastChanged": 1752430606,
+    "createdBy": "65605bbcde1bccb4b9af6114",
+    "lastChangedBy": "65605bbcde1bccb4b9af6114",
+    "isDeprecated": false
+}

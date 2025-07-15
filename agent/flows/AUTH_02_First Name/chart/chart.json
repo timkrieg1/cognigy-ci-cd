@@ -1,0 +1,795 @@
+[
+    {
+        "node": "6873f80e432d29bf054f782b",
+        "children": [],
+        "next": "6873f80e432d29bf054f782c",
+        "_id": "6873f80e432d29bf054f782d",
+        "_data": {
+            "_id": "6873f80e432d29bf054f782b",
+            "referenceId": "8a8e9e56-2448-49b1-9116-c963029a500a",
+            "type": "start",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Start",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": true,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f782e",
+        "children": [],
+        "next": null,
+        "_id": "6873f80e432d29bf054f782f",
+        "_data": {
+            "_id": "6873f80e432d29bf054f782e",
+            "referenceId": "ccae56e2-825b-412c-aa18-380cfe105dcf",
+            "type": "end",
+            "extension": "@cognigy/basic-nodes",
+            "label": "End",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f782c",
+        "children": [],
+        "next": "6873f80e432d29bf054f7830",
+        "_id": "6873f80e432d29bf054f7831",
+        "_data": {
+            "_id": "6873f80e432d29bf054f782c",
+            "referenceId": "4df7d97f-1cd2-4887-b7cb-6203e947e682",
+            "type": "code",
+            "extension": "@cognigy/basic-nodes",
+            "label": "READ ME",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "code": "/* \r\nFlow Purpose\r\n\r\nThis flow prompts the caller for their first name.\r\nThe first name is extracted via regex and checked against the first name associated with this contract in the database.\r\nThe extracted first name is stored in the context.\r\n\r\n// Alternatives to the regex check validation are mentioned in node C: Search for first name match.\r\n// I can only test text input, so I'm not sure how silence would be handled -> might freeze on Wait for Input, or might register an empty string, I don't know and can't test it.\r\n\r\n// Also, the regex in the contract validation flow expects 4-9 digits, but the sample data has 10 digits, so it breaks. I haven't changed the regex, I thought I'd let you know.\r\n\r\n---------------------------------------\r\nCONNECTION TO OTHER FLOWS\r\n\r\nThis flow invokes the following flows:\r\nAUTH_03_Last Name // this is a placeholder, the flow doesn't exist yet\r\nBF_05_Handover\r\n\r\n\r\n\r\nThis flow gets invoked by the following flows:\r\nAUTH_00_Main\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n */",
+                "hasError": false,
+                "transpiled": ""
+            },
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7832",
+        "children": [],
+        "next": "6873f80e432d29bf054f7833",
+        "_id": "6873f80e432d29bf054f7834",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7832",
+            "referenceId": "1608b0a2-b2ce-4b3b-8ea5-5e7dde97927c",
+            "type": "say",
+            "extension": "@cognigy/basic-nodes",
+            "label": "S: What is your first name",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "say": {
+                    "data": "",
+                    "linear": false,
+                    "loop": false,
+                    "text": [
+                        "Please provide me with your first name so that our customer advisors can help you as quickly as possible.\r"
+                    ],
+                    "type": "text",
+                    "_cognigy": {},
+                    "_data": {
+                        "_cognigy": {}
+                    }
+                },
+                "handoverOutput": "userAndAgent",
+                "preventTranscript": false,
+                "generativeAI_rephraseOutputMode": "none",
+                "generativeAI_amountOfLastUserInputs": 5,
+                "generativeAI_customInputs": "",
+                "generativeAI_temperature": 0.7
+            },
+            "preview": {
+                "data": "",
+                "linear": false,
+                "loop": false,
+                "text": [
+                    "Please provide me with your first name so that our customer advisors can help you as quickly as possible.\r"
+                ],
+                "type": "text",
+                "_cognigy": {},
+                "_data": {
+                    "_cognigy": {}
+                }
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7833",
+        "children": [],
+        "next": "6873f80e432d29bf054f7835",
+        "_id": "6873f80e432d29bf054f7836",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7833",
+            "referenceId": "2038bf2c-00cd-41df-8bb2-cd8b377e5907",
+            "type": "wait",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Wait for Input",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": true,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7830",
+        "children": [],
+        "next": "6873f80e432d29bf054f7837",
+        "_id": "6873f80e432d29bf054f7838",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7830",
+            "referenceId": "79f03f1b-f7f7-4ad9-bd55-a79c4b1a24a2",
+            "type": "code",
+            "extension": "@cognigy/basic-nodes",
+            "label": "C: Mock Context for debugging",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "code": "try {\r\n    //Check if the sessionInformation object already exists, if not the chat was started from this flow, which means we need to initialize it for debugging\r\n    if(_.isUndefined(cc.sessionInformation)) {\r\n        cc.sessionInformation = {\r\n            \"caller\": \"+49176145265874\",\r\n            \"callee\": \"+49123456789123\",\r\n            \"recordingConsent\": true\r\n\t    }\r\n\r\n        cc.constants = {\r\n            \"apiBaseUrl\": \"https://api-trial.cognigy.ai/new\",\r\n\t\t    \"handoverTransferTarget\": \"+49123456789\",\r\n            \"flowControllerPercentages\": {\r\n            },\r\n            \"contract\": {\r\n                \"contractPrefixes\": [\r\n                    \"KV\",\r\n                    \"SV\",\r\n                    \"AB\"\r\n                ],\r\n                \"firstname\" : {\r\n                    \"value\" : \"Kliment\"\r\n                }\r\n    \t    },\r\n        }\r\n    }\r\n\r\n} catch(error) {\r\n    api.log(\"error\", `[AUTH_00_Main; C: Mock Context for debugging] Error Message: ${error.toString()}`)\r\n\r\n}",
+                "hasError": false,
+                "transpiled": "try {\n    if (_.isUndefined(cc.sessionInformation)) {\n        cc.sessionInformation = {\n            \"caller\": \"+49176145265874\",\n            \"callee\": \"+49123456789123\",\n            \"recordingConsent\": true\n        };\n        cc.constants = {\n            \"apiBaseUrl\": \"https://api-trial.cognigy.ai/new\",\n            \"handoverTransferTarget\": \"+49123456789\",\n            \"flowControllerPercentages\": {},\n            \"contract\": {\n                \"contractPrefixes\": [\n                    \"KV\",\n                    \"SV\",\n                    \"AB\"\n                ],\n                \"firstname\": {\n                    \"value\": \"Kliment\"\n                }\n            },\n        };\n    }\n}\ncatch (error) {\n    api.log(\"error\", `[AUTH_00_Main; C: Mock Context for debugging] Error Message: ${error.toString()}`);\n}\n"
+            },
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7839",
+        "children": [
+            "6873f80e432d29bf054f783a",
+            "6873f80e432d29bf054f783b"
+        ],
+        "next": "6873f80e432d29bf054f782e",
+        "_id": "6873f80e432d29bf054f783c",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7839",
+            "referenceId": "5d61d9c2-25bd-406b-a021-a762b4581196",
+            "type": "if",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Name confirmed?",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "condition": {
+                    "type": "condition",
+                    "rule": {
+                        "left": "1",
+                        "operand": "eq",
+                        "right": "1"
+                    },
+                    "condition": "{{cc.sessionInformation.contract.firstname.confirmed}}"
+                }
+            },
+            "preview": {
+                "type": "condition",
+                "rule": {
+                    "left": "1",
+                    "operand": "eq",
+                    "right": "1"
+                },
+                "condition": "{{cc.sessionInformation.contract.firstname.confirmed}}"
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f783a",
+        "children": [],
+        "next": "6873f80e432d29bf054f783d",
+        "_id": "6873f80e432d29bf054f783e",
+        "_data": {
+            "_id": "6873f80e432d29bf054f783a",
+            "referenceId": "1f971079-bb23-4571-bac0-f3f52db9d15b",
+            "type": "then",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Then",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f783b",
+        "children": [],
+        "next": "6873f80e432d29bf054f783f",
+        "_id": "6873f80e432d29bf054f7840",
+        "_data": {
+            "_id": "6873f80e432d29bf054f783b",
+            "referenceId": "fcd3d899-1c78-4202-8bda-40ba3e5ae784",
+            "type": "else",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Else",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7841",
+        "children": [],
+        "next": "6873f80e432d29bf054f7842",
+        "_id": "6873f80e432d29bf054f7843",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7841",
+            "referenceId": "c60973bf-c14f-47c6-b76f-afcb0e665051",
+            "type": "say",
+            "extension": "@cognigy/basic-nodes",
+            "label": "S: Last name",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "say": {
+                    "data": "",
+                    "linear": false,
+                    "loop": false,
+                    "text": [
+                        "Thank you for confirming your first name! Now, let's also confirm your last name."
+                    ],
+                    "type": "text",
+                    "_cognigy": {},
+                    "_data": {
+                        "_cognigy": {}
+                    }
+                },
+                "handoverOutput": "userAndAgent",
+                "preventTranscript": false,
+                "generativeAI_rephraseOutputMode": "none",
+                "generativeAI_amountOfLastUserInputs": 5,
+                "generativeAI_customInputs": "",
+                "generativeAI_temperature": 0.7
+            },
+            "preview": {
+                "data": "",
+                "linear": false,
+                "loop": false,
+                "text": [
+                    "Thank you for confirming your first name! Now, let's also confirm your last name."
+                ],
+                "type": "text",
+                "_cognigy": {},
+                "_data": {
+                    "_cognigy": {}
+                }
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7844",
+        "children": [],
+        "next": null,
+        "_id": "6873f80e432d29bf054f7845",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7844",
+            "referenceId": "cfbbefae-1639-4a8f-b7ad-a208595ac77e",
+            "type": "code",
+            "extension": "@cognigy/basic-nodes",
+            "label": "EX: AUTH_03_Last Name PLACEHOLDER",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "code": ""
+            },
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f783f",
+        "children": [
+            "6873f80e432d29bf054f7846",
+            "6873f80e432d29bf054f7847"
+        ],
+        "next": null,
+        "_id": "6873f80e432d29bf054f7848",
+        "_data": {
+            "_id": "6873f80e432d29bf054f783f",
+            "referenceId": "97eaf198-039b-4fea-85f8-b1a1eb49a6b4",
+            "type": "once",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Once",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7846",
+        "children": [],
+        "next": "6873f80e432d29bf054f7849",
+        "_id": "6873f80e432d29bf054f784a",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7846",
+            "referenceId": "7bea4021-1100-41e9-b5f4-f972f1d9e3e5",
+            "type": "onFirstExecution",
+            "extension": "@cognigy/basic-nodes",
+            "label": "On First Time",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7847",
+        "children": [],
+        "next": "6873f80e432d29bf054f784b",
+        "_id": "6873f80e432d29bf054f784c",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7847",
+            "referenceId": "8771d866-ea92-46d5-827b-c38d54fd2cd3",
+            "type": "afterwards",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Afterwards",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {},
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f784b",
+        "children": [],
+        "next": "6873f80e432d29bf054f784d",
+        "_id": "6873f80e432d29bf054f784e",
+        "_data": {
+            "_id": "6873f80e432d29bf054f784b",
+            "referenceId": "73f7830a-2105-4ec1-92b3-ea993f4808e4",
+            "type": "say",
+            "extension": "@cognigy/basic-nodes",
+            "label": "S: First name not confirmed",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "say": {
+                    "data": "",
+                    "linear": false,
+                    "loop": false,
+                    "text": [
+                        "Unfortunately, I was unable to correctly confirm your first name."
+                    ],
+                    "type": "text",
+                    "_cognigy": {},
+                    "_data": {
+                        "_cognigy": {}
+                    }
+                },
+                "handoverOutput": "userAndAgent",
+                "preventTranscript": false,
+                "generativeAI_rephraseOutputMode": "none",
+                "generativeAI_amountOfLastUserInputs": 5,
+                "generativeAI_customInputs": "",
+                "generativeAI_temperature": 0.7
+            },
+            "preview": {
+                "data": "",
+                "linear": false,
+                "loop": false,
+                "text": [
+                    "Unfortunately, I was unable to correctly confirm your first name."
+                ],
+                "type": "text",
+                "_cognigy": {},
+                "_data": {
+                    "_cognigy": {}
+                }
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7842",
+        "children": [],
+        "next": "6873f80e432d29bf054f7844",
+        "_id": "6873f80e432d29bf054f784f",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7842",
+            "referenceId": "b877e730-139f-4842-8783-0142038c4d8e",
+            "type": "overwriteAnalytics",
+            "extension": "@cognigy/basic-nodes",
+            "label": "KPI: AUTH_02_01",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "customDesc": "",
+                "defaultDesc": "",
+                "custom1": "",
+                "custom2": "",
+                "custom3": "",
+                "custom4": "",
+                "custom5": "",
+                "custom6": "",
+                "custom7": "",
+                "custom8": "",
+                "custom9": "",
+                "custom10": "",
+                "intent": "",
+                "intentScore": "",
+                "inputText": "",
+                "inputData": "{}",
+                "state": "",
+                "handoverEscalations": "",
+                "slots": "{}",
+                "completedGoals": "",
+                "understood": "cUndefined"
+            },
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f784d",
+        "children": [],
+        "next": "6873f80e432d29bf054f7850",
+        "_id": "6873f80e432d29bf054f7851",
+        "_data": {
+            "_id": "6873f80e432d29bf054f784d",
+            "referenceId": "cb91bded-a518-4b33-9403-7b9cd5088e5c",
+            "type": "overwriteAnalytics",
+            "extension": "@cognigy/basic-nodes",
+            "label": "KPI: AUTH_02_03",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "customDesc": "",
+                "defaultDesc": "",
+                "custom1": "",
+                "custom2": "",
+                "custom3": "",
+                "custom4": "",
+                "custom5": "",
+                "custom6": "",
+                "custom7": "",
+                "custom8": "",
+                "custom9": "",
+                "custom10": "",
+                "intent": "",
+                "intentScore": "",
+                "inputText": "",
+                "inputData": "{}",
+                "state": "",
+                "handoverEscalations": "",
+                "slots": "{}",
+                "completedGoals": "",
+                "understood": "cUndefined"
+            },
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7837",
+        "children": [],
+        "next": "6873f80e432d29bf054f7832",
+        "_id": "6873f80e432d29bf054f7852",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7837",
+            "referenceId": "77062df5-eb5d-436b-a34a-b74568088080",
+            "type": "addToContext",
+            "extension": "@cognigy/basic-nodes",
+            "label": "AC: Initialize First Name Object",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "key": "sessionInformation.contract.firstname",
+                "value": "{}",
+                "mode": "simple"
+            },
+            "preview": "sessionInformation.contract.firstname",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7850",
+        "children": [],
+        "next": null,
+        "_id": "6873f80e432d29bf054f7853",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7850",
+            "referenceId": "d4e95b89-c301-4fbb-a64b-f41b98c15e69",
+            "type": "goTo",
+            "extension": "@cognigy/basic-nodes",
+            "label": "G2: BF_05_Handover",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "flowNode": {
+                    "flow": "5695db90-1987-429a-bd29-0dc89c2cd9f3",
+                    "node": "2eb483bf-d9ef-47e7-8740-4d8972b6f17b"
+                },
+                "absorbContext": false,
+                "executionMode": "continue",
+                "injectedText": "",
+                "injectedData": "{}",
+                "parseIntents": false,
+                "parseKeyphrases": false
+            },
+            "preview": {
+                "flow": "5695db90-1987-429a-bd29-0dc89c2cd9f3",
+                "node": "2eb483bf-d9ef-47e7-8740-4d8972b6f17b"
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7849",
+        "children": [],
+        "next": "6873f80e432d29bf054f7854",
+        "_id": "6873f80e432d29bf054f7855",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7849",
+            "referenceId": "9617d3c7-6dda-40dc-a5d2-438b9b888384",
+            "type": "say",
+            "extension": "@cognigy/basic-nodes",
+            "label": "S: Reprompt not confirmed",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "say": {
+                    "data": "",
+                    "linear": false,
+                    "loop": false,
+                    "text": [
+                        "Sorry, can you please tell me your first name again?\r"
+                    ],
+                    "type": "text",
+                    "_cognigy": {},
+                    "_data": {
+                        "_cognigy": {}
+                    }
+                },
+                "handoverOutput": "userAndAgent",
+                "preventTranscript": false,
+                "generativeAI_rephraseOutputMode": "none",
+                "generativeAI_amountOfLastUserInputs": 5,
+                "generativeAI_customInputs": "",
+                "generativeAI_temperature": 0.7
+            },
+            "preview": {
+                "data": "",
+                "linear": false,
+                "loop": false,
+                "text": [
+                    "Sorry, can you please tell me your first name again?\r"
+                ],
+                "type": "text",
+                "_cognigy": {},
+                "_data": {
+                    "_cognigy": {}
+                }
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7854",
+        "children": [],
+        "next": "6873f80e432d29bf054f7856",
+        "_id": "6873f80e432d29bf054f7857",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7854",
+            "referenceId": "d7901ef5-f76f-4096-aaee-16a932dc5f50",
+            "type": "overwriteAnalytics",
+            "extension": "@cognigy/basic-nodes",
+            "label": "KPI: AUTH_02_02",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "customDesc": "",
+                "defaultDesc": "",
+                "custom1": "",
+                "custom2": "",
+                "custom3": "",
+                "custom4": "",
+                "custom5": "",
+                "custom6": "",
+                "custom7": "",
+                "custom8": "",
+                "custom9": "",
+                "custom10": "",
+                "intent": "",
+                "intentScore": "",
+                "inputText": "",
+                "inputData": "{}",
+                "state": "",
+                "handoverEscalations": "",
+                "slots": "{}",
+                "completedGoals": "",
+                "understood": "cUndefined"
+            },
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7856",
+        "children": [],
+        "next": null,
+        "_id": "6873f80e432d29bf054f7858",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7856",
+            "referenceId": "1c8e8765-21cd-4e90-919b-f0c00c90d095",
+            "type": "executeFlow",
+            "extension": "@cognigy/basic-nodes",
+            "label": "EX: AUTH_02_First Name",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "flowNode": {
+                    "flow": "3867e572-520c-4b2a-87fb-b3e68207de97",
+                    "node": "2038bf2c-00cd-41df-8bb2-cd8b377e5907"
+                },
+                "parseIntents": false,
+                "parseKeyphrases": false,
+                "absorbContext": ""
+            },
+            "preview": {
+                "flow": "3867e572-520c-4b2a-87fb-b3e68207de97",
+                "node": "2038bf2c-00cd-41df-8bb2-cd8b377e5907"
+            },
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7835",
+        "children": [],
+        "next": "6873f80e432d29bf054f7859",
+        "_id": "6873f80e432d29bf054f785a",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7835",
+            "referenceId": "1504eef7-5c7a-4493-99b6-e282daa05e22",
+            "type": "addToContext",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Add To Context",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "key": "sessionInformation.inputText",
+                "value": "{{ci.text}}",
+                "mode": "simple"
+            },
+            "preview": "sessionInformation.inputText",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f7859",
+        "children": [],
+        "next": "6873f80e432d29bf054f7839",
+        "_id": "6873f80e432d29bf054f785b",
+        "_data": {
+            "_id": "6873f80e432d29bf054f7859",
+            "referenceId": "65dda231-e99b-4b5d-b437-68c96621e5fd",
+            "type": "code",
+            "extension": "@cognigy/basic-nodes",
+            "label": "C: Search for first name match",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "code": "const userInput = cc.sessionInformation.inputText.toLowerCase();\r\nconst expectedName = cc.constants.contract.firstname.value.toLowerCase();\r\n\r\n// Try to extract a name using a simple regex\r\nconst nameMatch = userInput.match(/\\b([a-zA-Z]+)\\b/g); // Extracts all words\r\n\r\nif (nameMatch) {\r\n    // Check if any of the words match the expected name\r\n    const matchedName = nameMatch.find(word => word.toLowerCase() === expectedName);\r\n\r\n    if (matchedName) {\r\n        cc.sessionInformation.contract.firstname.confirmed = true;\r\n        cc.sessionInformation.contract.firstname.extractedName = matchedName;\r\n    } else {\r\n        cc.sessionInformation.contract.firstname.confirmed = false;\r\n        cc.sessionInformation.contract.firstname.extractedName = null;\r\n    }\r\n} else {\r\n    cc.sessionInformation.contract.firstname.confirmed = false;\r\n    context.extractedName = null;\r\n}\r\n\r\n// Alternative - instead of splitting the words, remove all whitespaces from the input string and run .includes() to match the firstname from the database.\r\n// I think confirming with the user (like in the validate contract flow) is unnecessary, but if need be it's an easy addition.",
+                "hasError": false,
+                "transpiled": "const userInput = cc.sessionInformation.inputText.toLowerCase();\nconst expectedName = cc.constants.contract.firstname.value.toLowerCase();\nconst nameMatch = userInput.match(/\\b([a-zA-Z]+)\\b/g);\nif (nameMatch) {\n    const matchedName = nameMatch.find(word => word.toLowerCase() === expectedName);\n    if (matchedName) {\n        cc.sessionInformation.contract.firstname.confirmed = true;\n        cc.sessionInformation.contract.firstname.extractedName = matchedName;\n    }\n    else {\n        cc.sessionInformation.contract.firstname.confirmed = false;\n        cc.sessionInformation.contract.firstname.extractedName = null;\n    }\n}\nelse {\n    cc.sessionInformation.contract.firstname.confirmed = false;\n    context.extractedName = null;\n}\n"
+            },
+            "preview": "",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    },
+    {
+        "node": "6873f80e432d29bf054f783d",
+        "children": [],
+        "next": "6873f80e432d29bf054f7841",
+        "_id": "6873f80e432d29bf054f785c",
+        "_data": {
+            "_id": "6873f80e432d29bf054f783d",
+            "referenceId": "97739a17-a64d-4842-ad9e-25bcd43b49b7",
+            "type": "placeholder",
+            "extension": "@cognigy/basic-nodes",
+            "label": "Placeholder",
+            "comment": "",
+            "commentColor": "",
+            "analyticsLabel": null,
+            "isEntryPoint": false,
+            "isDisabled": false,
+            "config": {
+                "text": "Just some new node",
+                "data": ""
+            },
+            "preview": "Just some new node",
+            "localeReference": "6873f7f242ec168c188334ee"
+        }
+    }
+]
