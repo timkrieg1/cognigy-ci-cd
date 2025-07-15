@@ -106,7 +106,6 @@ CognigyAPIClientDev.create_package(
 CognigyAPIClientDev.download_package()
 
 snapshot_name = CognigyAPIClientDev.download_snapshot(
-    max_snapshots=max_snapshots,
     release_description=release_description
 )
 

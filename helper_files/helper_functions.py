@@ -185,6 +185,7 @@ class CognigyAPIClient:
         """
         Creates a new package with the specified resources.
         """
+        print("Starting package creation...", flush=True)
         # --- Generate package name with timestamp ---
         now = datetime.now().strftime("%Y%m%d_%H%M%S")
         self.package_name = f"Cognigy-CI-CD-Package_{self.bot_name}_{now}"
@@ -236,7 +237,6 @@ class CognigyAPIClient:
 
             response.raise_for_status()
             download_link = response.json().get("downloadLink", "")
-            print(download_link)
             # --- Download the file ---
             target_dir = os.path.join("agent", "package")
             os.makedirs(target_dir, exist_ok=True)
