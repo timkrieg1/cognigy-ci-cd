@@ -1,13 +1,13 @@
 from tqdm import tqdm
-
-import requests  # --- HTTP requests for Cognigy API ---
-import json  # --- JSON serialization/deserialization ---
-import os  # --- File and directory operations ---
-import dotenv  # --- Environment variable management ---
-from typing import List  # --- Type hinting for lists ---
-import re  # --- Regular expressions for string cleaning ---
-from datetime import datetime  # --- Date and time operations ---
-import time  # --- Sleep and timing utilities ---
+import requests 
+import json 
+import os  
+import dotenv 
+from typing import List 
+import re  
+from datetime import datetime  
+import time  
+import base64
 
 def clean_base_url(base_url: str) -> str:
     """
@@ -35,7 +35,7 @@ class CognigyAPIClient:
             Sends a POST request to the specified endpoint with optional data.
     """
 
-    def __init__(self,base_url: str = None, api_key: dict = None, project_id: str = None, bot_name: str = None, playbook_prefixes: List[str] = None, locales: dict = None, playbook_flows: dict = None):
+    def __init__(self,base_url: str = None, api_key: dict = None, project_id: str = None, bot_name: str = None, playbook_prefixes: List[str] = None, locales: dict = None, playbook_flows: dict = None, max_snapshots: int = None):
         # --- Validate required parameters ---
         if (not base_url or not api_key or not project_id or not bot_name or not locales):
             raise ValueError("Cannot instantiate Cognigy API Client. Base URL, API Key, and Project ID and Bot Name must be provided.")
@@ -50,6 +50,7 @@ class CognigyAPIClient:
         self.locales = locales
         self.playbook_prefixes = playbook_prefixes
         self.playbook_flows = playbook_flows
+        self.max_snapshots = max_snapshots
         # --- Set up request headers and session ---
         self.headers = {
             "Content-Type": "application/json",
@@ -271,33 +272,42 @@ class CognigyAPIClient:
             print("Finished package download")
             break
             
-    def download_snapshot(self, max_snapshots: int, release_description: str) -> None:
+    def ensure_snapshot_limit(self) -> None:
         """
-        Prepares the snapshot for download.
+        Ensures the number of snapshots does not exceed max_snapshots.
+        Deletes the oldest snapshot if the limit is reached.
         """
-        print("Preparing snapshot for download...", flush=True)
-        # --- Check if the max amount of snapshots is reached ---
         response = self.session.get(url=f"{self.base_url}/snapshots", params=self.params)
         response.raise_for_status()
         snapshots = response.json().get("items", [])
         print(f"Current number of snapshots: {len(snapshots)}", flush=True)
-        print(f"Max allowed snapshots: {max_snapshots}", flush=True)
+        print(f"Max allowed snapshots: {self.max_snapshots}", flush=True)
 
-        if len(snapshots) >= int(max_snapshots):
+        if len(snapshots) >= int(self.max_snapshots):
             # --- Delete the oldest snapshot ---
             oldest_snapshot = snapshots[-1]
             snapshot_id = oldest_snapshot["_id"]
-            self.session.delete(url=f"{self.base_url}/snapshots/{snapshot_id}")
-            response.raise_for_status()
+            delete_response = self.session.delete(url=f"{self.base_url}/snapshots/{snapshot_id}")
+            delete_response.raise_for_status()
             # --- Poll until the number of snapshots is less than max_snapshots ---
             while True:
                 poll_response = self.session.get(url=f"{self.base_url}/snapshots", params=self.params)
                 poll_response.raise_for_status()
                 poll_snapshots = poll_response.json().get("items", [])
-                if len(poll_snapshots) < int(max_snapshots):
+                if len(poll_snapshots) < int(self.max_snapshots):
                     break
-                    time.sleep(2)
+                time.sleep(2)
             print(f"Deleted oldest snapshot: {snapshot_id}", flush=True)
+
+    def download_snapshot(self, release_description: str) -> None:
+        """
+        Prepares the snapshot for download.
+        """
+        print("Preparing snapshot for download...", flush=True)
+        self.ensure_snapshot_limit()
+        response = self.session.get(url=f"{self.base_url}/snapshots", params=self.params)
+        response.raise_for_status()
+        snapshots = response.json().get("items", [])
 
         # --- Determine the new snapshot name ---
         today_str = datetime.now().strftime("%d_%m_%Y")
@@ -451,12 +461,6 @@ class CognigyAPIClient:
                     print(f"Playbook {run['playbook_name']} ({run['playbook_id']}) failed with status: {run['status']}")
         
         return all_passed
-
-                
-
-        
-        
-        print("Automated tests passed successfully.")
 
     def fetch_playbooks_with_prefix(self) -> List[dict]:
         """
@@ -701,3 +705,40 @@ class CognigyAPIClient:
                     json.dump(source_data, f, indent=4, ensure_ascii=False)
 
 
+    def deploy_agent(self) -> None:
+        """
+        Deploys the agent to prod.
+        Snapshot from agent directory is used
+        """
+        print("Deploying agent...")
+
+        # --- Ensure snapshot exists in agent directory exists ---
+        snapshot_dir = os.path.join("agent", "snapshot")
+        csnap_files = [f for f in os.listdir(snapshot_dir) if f.endswith('.csnap')]
+        if not csnap_files:
+            raise FileNotFoundError("No .csnap file found in the agent/snapshot directory.")
+        if len(csnap_files) > 1:
+            raise RuntimeError("Multiple .csnap files found in the agent/snapshot directory. There should be only one.")
+
+        # --- Check if max snapshots is reached, else delete oldest snapshot ---
+        self.ensure_snapshot_limit()
+
+        # --- Deploy snapshot to prod ---
+        csnap_file_path = os.path.join(snapshot_dir, csnap_files[0])
+        files = {
+            'file': open(csnap_file_path, "rb")
+        }
+
+        data = {
+            'projectId': self.project_id,
+        }
+
+        r = requests.post(
+            url=f"{self.base_url}/snapshots/upload",
+            data=data,
+            files=files,
+            headers={"X-API-KEY": self.api_key}
+        )
+        r.raise_for_status()
+
+        print("Agent deployed successfully.")
