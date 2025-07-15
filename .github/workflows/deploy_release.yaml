@@ -14,7 +14,22 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      # Add your post-merge steps below
-      - name: Example Step
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
         run: |
-          echo "This workflow runs after a merge into main."
+          pip install -r requirements.txt
+
+      - name: Deploy Agent
+        env:
+          COGNIGY_BASE_URL_PROD: ${{ vars.COGNIGY_BASE_URL_PROD }}
+          COGNIGY_API_KEY_PROD: ${{ secrets.COGNIGY_API_KEY_PROD }}
+          BOT_NAME: ${{ vars.BOT_NAME }}
+          MAX_SNAPSHOTS: ${{ vars.MAX_SNAPSHOTS }}
+
+        run: |
+          python helper_files/deploy_agent.py
+
