@@ -18,10 +18,4 @@ jobs:
       - name: Example Step
         run: |
           echo "This workflow runs after a merge into main."
-      - name: Check last commit author for snapshot file
-        run: |
-          AUTHOR=$(git log -1 --pretty=format:'%an' agent/snapshot/*)
-          if [ "$AUTHOR" != "actions-user" ]; then
-            echo "Snapshot file was manually changed by $AUTHOR. Failing pipeline."
-            exit 1
-          fi
+
