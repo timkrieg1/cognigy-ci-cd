@@ -13,6 +13,17 @@
         },
         "training_sentences": [
             {
+                "_id": "6878eccbd20cd22d5469b88e",
+                "referenceId": "cbb1219a-a4de-4272-90ee-25f5850f3d9d",
+                "text": "I dont find my contract",
+                "localeReference": "6873f7f242ec168c188334ee",
+                "createdAt": 1752755403,
+                "lastChanged": 1752755403,
+                "createdBy": "68764c52a91af1e68861a793",
+                "lastChangedBy": "68764c52a91af1e68861a793",
+                "slots": []
+            },
+            {
                 "_id": "6878a2f3f326da04340b4461",
                 "referenceId": "865f227b-fd0b-4ac4-ae31-3f4298cdc90d",
                 "text": "No contract number",
