@@ -146,7 +146,12 @@ subprocess.run(["git", "config", "--global", "user.email", user_email], check=Tr
 subprocess.run(["git", "config", "--global", "user.name", user_name], check=True)
 
 # Ensure we are on main and up to date
-subprocess.run(["git", "checkout", "main"], check=True)
+subprocess.run(["git", "fetch", "--all"], check=True)
+try:
+    subprocess.run(["git", "checkout", "main"], check=True)
+except subprocess.CalledProcessError:
+    print("Branch 'main' not found, trying 'master'...")
+    subprocess.run(["git", "checkout", "master"], check=True)
 subprocess.run(["git", "pull", remote_name, "main"], check=True)
 
 # Create new branch from main
@@ -158,3 +163,5 @@ subprocess.run(["git", "commit", "-m", f"Update agent export for {bot_name}"], c
 
 # Push the new branch
 subprocess.run(["git", "push", "-u", remote_name, branch_name], check=True)
+
+subprocess.run(["git", "branch", "-a"], check=True)
