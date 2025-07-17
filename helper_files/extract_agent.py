@@ -132,7 +132,7 @@ if os.getenv("GITHUB_ACTIONS", "").lower() == "true":
     user_name = "github-actions"
 elif os.getenv("TF_BUILD", "").lower() == "true":
     print("Running in Azure DevOps environment.")
-    remote_name = "azure-origin"
+    remote_name = "origin"
     user_email = "azure-pipelines@devops.com"
     user_name = "azure-pipelines"
 else:
