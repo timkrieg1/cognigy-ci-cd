@@ -124,13 +124,30 @@ CognigyAPIClientDev.extract_agent_resources_by_ids(
 # --- Git branch creation and commit logic ---
 branch_name = snapshot_name
 
+# Detect CI/CD environment and configure git/remote dynamically
+if os.getenv("GITHUB_ACTIONS", "").lower() == "true":
+    print("Running in GitHub Actions environment.")
+    remote_name = "origin"
+    user_email = "actions@github.com"
+    user_name = "github-actions"
+elif os.getenv("TF_BUILD", "").lower() == "true":
+    print("Running in Azure DevOps environment.")
+    remote_name = "azure-origin"
+    user_email = "azure-pipelines@devops.com"
+    user_name = "azure-pipelines"
+else:
+    print("Running in local environment.")
+    remote_name = "origin"
+    user_email = "local@user.com"
+    user_name = "local-user"
+
 # Git config
-subprocess.run(["git", "config", "--global", "user.email", "actions@github.com"], check=True)
-subprocess.run(["git", "config", "--global", "user.name", "github-actions"], check=True)
+subprocess.run(["git", "config", "--global", "user.email", user_email], check=True)
+subprocess.run(["git", "config", "--global", "user.name", user_name], check=True)
 
 # Ensure we are on main and up to date
 subprocess.run(["git", "checkout", "main"], check=True)
-subprocess.run(["git", "pull", "origin", "main"], check=True)
+subprocess.run(["git", "pull", remote_name, "main"], check=True)
 
 # Create new branch from main
 subprocess.run(["git", "checkout", "-b", branch_name], check=True)
@@ -140,4 +157,4 @@ subprocess.run(["git", "add", agent_folder], check=True)
 subprocess.run(["git", "commit", "-m", f"Update agent export for {bot_name}"], check=True)
 
 # Push the new branch
-subprocess.run(["git", "push", "-u", "origin", branch_name], check=True)
+subprocess.run(["git", "push", "-u", remote_name, branch_name], check=True)
