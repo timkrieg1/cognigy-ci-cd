@@ -44,7 +44,7 @@
     {
         "node": "6873f80e432d29bf054f7701",
         "children": [],
-        "next": "6878ecd5bdb4a38fe9edabbc",
+        "next": "6873f80e432d29bf054f7705",
         "_id": "6873f80e432d29bf054f7706",
         "_data": {
             "_id": "6873f80e432d29bf054f7701",
@@ -127,30 +127,6 @@
                 "flow": "3ee2d312-87b7-4aca-838e-a8607291fe7d",
                 "node": "87ab4f39-e825-4194-bad0-7c7fc015453b"
             },
-            "localeReference": "6873f7f242ec168c188334ee"
-        }
-    },
-    {
-        "node": "6878ecd5bdb4a38fe9edabbc",
-        "children": [],
-        "next": "6873f80e432d29bf054f7705",
-        "_id": "6878ecd5bdb4a38fe9edabbf",
-        "_data": {
-            "_id": "6878ecd5bdb4a38fe9edabbc",
-            "referenceId": "65dbb4f4-519c-4232-ad75-ebbb5c8e4541",
-            "type": "placeholder",
-            "label": "Placeholder",
-            "comment": "",
-            "commentColor": "",
-            "analyticsLabel": null,
-            "isDisabled": false,
-            "isEntryPoint": false,
-            "extension": "@cognigy/basic-nodes",
-            "config": {
-                "text": "",
-                "data": ""
-            },
-            "preview": "",
             "localeReference": "6873f7f242ec168c188334ee"
         }
     }
