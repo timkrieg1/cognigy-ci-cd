@@ -1,3 +1,26 @@
+import functools
+
+# --- Decorator for retrying on 500 server errors ---
+def retry_on_500(max_retries=3, wait_seconds=5):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            retries = 0
+            while True:
+                try:
+                    return func(*args, **kwargs)
+                except requests.HTTPError as e:
+                    if e.response is not None and e.response.status_code == 500:
+                        retries += 1
+                        if retries > max_retries:
+                            print(f"Max retries reached for {func.__name__}. Raising error.", flush=True)
+                            raise
+                        print(f"500 Server Error encountered in {func.__name__}, retrying in {wait_seconds} seconds... (Attempt {retries}/{max_retries})", flush=True)
+                        time.sleep(wait_seconds)
+                    else:
+                        raise
+        return wrapper
+    return decorator
 from tqdm import tqdm
 import requests 
 import json 
@@ -65,6 +88,7 @@ class CognigyAPIClient:
             "projectId": self.project_id
         }
 
+    @retry_on_500()
     def get(self, endpoint: str, params: dict = None) -> List[dict]:
         # --- Generic GET request with pagination support ---
         url = f"{self.base_url}/{endpoint}"
@@ -181,6 +205,7 @@ class CognigyAPIClient:
             function_ids.append(function["_id"])
         return function_ids
     
+    @retry_on_500()
     def create_package(self, resource_ids: List[str]) -> dict:
         """
         Creates a new package with the specified resources.
@@ -201,6 +226,7 @@ class CognigyAPIClient:
         response.raise_for_status()
         return response.json
     
+    @retry_on_500()
     def download_package(self) -> dict:
         """
         Downloads the package created by the CI/CD pipeline.
@@ -272,6 +298,7 @@ class CognigyAPIClient:
             print("Finished package download")
             break
             
+    @retry_on_500()
     def ensure_snapshot_limit(self) -> None:
         """
         Ensures the number of snapshots does not exceed max_snapshots.
@@ -299,6 +326,7 @@ class CognigyAPIClient:
                 time.sleep(2)
             print(f"Deleted oldest snapshot: {snapshot_id}", flush=True)
 
+    @retry_on_500()
     def download_snapshot(self, release_description: str) -> None:
         """
         Prepares the snapshot for download.
@@ -383,6 +411,7 @@ class CognigyAPIClient:
                         break
         return self.snapshot_name
     
+    @retry_on_500()
     def run_automated_tests(self) -> None:
         """
         Runs automated tests (Cognigy Playbooks) using a predefined prefix.
@@ -462,6 +491,7 @@ class CognigyAPIClient:
         
         return all_passed
 
+    @retry_on_500()
     def fetch_playbooks_with_prefix(self) -> List[dict]:
         """
         Fetches playbooks with a specific prefix.
@@ -535,6 +565,7 @@ class CognigyAPIClient:
 
         print("All agent resources have been extracted successfully.", flush=True)
     
+    @retry_on_500()
     def extract_flow_data(self, flow_ids: list[str], output_path: str) -> list[dict]:
         """
         Extracts detailed flow data for each flow ID, including metadata, chart nodes, settings, intents, and states.
@@ -626,6 +657,7 @@ class CognigyAPIClient:
                 with open(file_path, "w", encoding="utf-8") as f:
                     json.dump(content, f, indent=4, ensure_ascii=False)
 
+    @retry_on_500()
     def extract_resource_data(self, resource_ids: list[str], output_path: str, endpoint: str) -> None:
         """
         Extracts resource data by their IDs and saves them to the specified output path.
@@ -651,6 +683,7 @@ class CognigyAPIClient:
             with open(file_path, "w", encoding="utf-8") as f:
                 json.dump(resource_data, f, indent=4, ensure_ascii=False)
     
+    @retry_on_500()
     def extract_knowledge_store_data(self, knowledge_store_ids: list[str], output_path: str) -> None:
         """
         Extracts knowledge store data by their IDs and saves them to the specified output path.
@@ -705,6 +738,7 @@ class CognigyAPIClient:
                     json.dump(source_data, f, indent=4, ensure_ascii=False)
 
 
+    @retry_on_500()
     def deploy_agent(self) -> None:
         """
         Deploys the agent to prod.
